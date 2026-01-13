@@ -1,94 +1,74 @@
-<!-- PROFILE README -->
+<div align="center">
+  <img src="https://github.com/Aleksandr861.png?size=220" width="220" alt="Александр" />
+  <h1>Александр</h1>
+  <p><b>Frontend Developer</b> • React / TypeScript / JavaScript</p>
 
-<p align="center">
- <img src="./avatar.png" width="220" />
-</p>
-
-<h1 align="center">👋 Александр</h1>
-<h3 align="center">Frontend / JavaScript Developer</h3>
-
-<p align="center">
-  <a href="mailto:mamont861@yandex.ru">📧 Email</a> ·
-  <a href="https://t.me/mamont861">💬 Telegram</a> ·
-  <a href="https://github.com/Aleksandr861">🐙 GitHub</a>
-</p>
+  <p>
+    <a href="mailto:mamont861@yandex.ru">📧 Email</a> ·
+    <a href="https://t.me/mamont861">💬 Telegram</a> ·
+    <a href="https://github.com/Aleksandr861">🐙 GitHub</a>
+  </p>
+</div>
 
 ---
 
-## 🧠 About Me
-Frontend-разработчик (фриланс).  
-Делаю адаптивные интерфейсы на **React / TypeScript** и чистом **JavaScript**.
+## О себе
+Фронтенд‑разработчик (фриланс).  
+Делаю адаптивные интерфейсы на **React / TypeScript** и на чистом **JavaScript**.
 
-- аккуратный UI
-- понятный код
-- предсказуемый результат
-- без «магии» и оверинжиниринга
+**Фокус:** аккуратный UI · понятный код · предсказуемый результат · без «магии» и оверинжиниринга.
 
 ---
 
-## 🧩 Tech Stack
-<p>
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-f7df1e?logo=javascript&logoColor=000"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178c6?logo=typescript&logoColor=fff"/>
-  <img src="https://img.shields.io/badge/React-20232a?logo=react"/>
-  <img src="https://img.shields.io/badge/HTML5-e34f26?logo=html5&logoColor=fff"/>
-  <img src="https://img.shields.io/badge/CSS3-1572b6?logo=css3&logoColor=fff"/>
-  <img src="https://img.shields.io/badge/Vite-646cff?logo=vite&logoColor=fff"/>
-  <img src="https://img.shields.io/badge/Webpack-8dd6f9?logo=webpack&logoColor=000"/>
-  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=fff"/>
-</p>
+## Стек
+- **JavaScript (ES6+)**, **TypeScript**
+- **React**
+- **HTML5 / CSS3** (адаптив, Flex/Grid)
+- **Vite**, **Webpack**
+- **Git**
 
 ---
 
-## 🚀 Projects
+## Проекты
 
-### 🎟️ Booking Tickets (FE_diploma)
-Интерфейс бронирования  
-**Stack:** TypeScript, CSS  
-🔗 Demo · 🔗 GitHub
+| Проект | Коротко | Стек | Ссылки |
+|---|---|---|---|
+| 🎟️ Booking Tickets | Интерфейс бронирования билетов | TypeScript, CSS | [Demo](https://aleksandr861.github.io/FE_diploma/) · [GitHub](https://github.com/Aleksandr861/FE_diploma) |
+| 🧱 React CRUD | CRUD‑интерфейс + работа с API | React, TypeScript | [Demo](https://aleksandr861.github.io/React_lifecycle-crud-frontend/) · [Frontend](https://github.com/Aleksandr861/React_lifecycle-crud-frontend) · [Backend](https://github.com/Aleksandr861/React_lifecycle-crud-backend) |
+| ⌚ Watches | UI‑виджет (lifecycle) | React, TypeScript | [Demo](https://aleksandr861.github.io/React_lifecycle-watches/) · [GitHub](https://github.com/Aleksandr861/React_lifecycle-watches) |
+| 📂 DnD Files | Drag & Drop + работа с файлами | Vanilla JavaScript | [Demo](https://aleksandr861.github.io/AHJ-Working-with-files-DnD/) · [GitHub](https://github.com/Aleksandr861/AHJ-Working-with-files-DnD) |
 
-### 🧱 React CRUD
-CRUD-интерфейс  
-**Stack:** React, TypeScript  
-🔗 GitHub Pages · 🔗 GitHub
-
-### ⌚ Watches
-UI-виджет  
-**Stack:** React, TypeScript  
-🔗 GitHub Pages · 🔗 GitHub
-
-### 📂 DnD Files
-Drag & Drop + работа с файлами  
-**Stack:** Vanilla JavaScript  
-🔗 Demo · 🔗 GitHub
+### Верстка / многостраничные проекты
+| Проект | Коротко | Стек | Ссылки |
+|---|---|---|---|
+| 🛍️ RoastLab (ecommerce) | Каталог/товар/корзина (localStorage) | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/ecommerce_coffee/) · [GitHub](https://github.com/Aleksandr861/ecommerce_coffee) |
+| 🏥 Corporate Clinic | Корпоративный сайт (несколько страниц) | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/corporate_clinic/) · [GitHub](https://github.com/Aleksandr861/corporate_clinic) |
+| 🛠️ Ремонт под ключ | Лендинг + квиз/FAQ/модалка | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/landing_remont/) · [GitHub](https://github.com/Aleksandr861/landing_remont) |
 
 ---
 
-## 📊 GitHub Stats
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aleksandr861&show_icons=true&hide_title=true"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aleksandr861&layout=compact"/>
-</p>
-
----
-
-## ⚙️ Work Format
-Бриф → оценка → разработка → проверка → деплой → передача исходников  
+## Формат работы
+Бриф → оценка → разработка → проверка → деплой → передача исходников
 
 **Форматы:** фикс / почасово / по этапам
 
 ---
 
-## 🌍 English Version (Short)
+<details>
+  <summary><b>📊 GitHub Stats</b></summary>
+  <br/>
 
-**Frontend Developer (Freelance)**  
-Building responsive web interfaces with **React, TypeScript, and JavaScript**.  
-Clean code, solid UI, predictable delivery.
+  <img src="https://github-readme-stats.vercel.app/api?username=Aleksandr861&show_icons=true&hide_title=true" alt="GitHub stats" />
+  <br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aleksandr861&layout=compact" alt="Top langs" />
+</details>
 
-📧 mamont861@yandex.ru  
-💬 Telegram  
-🐙 GitHub
+---
 
+## English (short)
+Frontend Developer (Freelance).  
+Building responsive UI with **React, TypeScript, JavaScript**. Clean code, predictable delivery.
+
+- Email: <a href="mailto:mamont861@yandex.ru">mamont861@yandex.ru</a>
+- Telegram: <a href="https://t.me/mamont861">@mamont861</a>
+- GitHub: <a href="https://github.com/Aleksandr861">Aleksandr861</a>
