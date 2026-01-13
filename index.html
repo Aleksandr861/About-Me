@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f8fafc" />
+  <title>Александр — Frontend / JavaScript разработчик</title>
+  <meta name="description" content="Frontend разработчик (JS/TS, React). Делаю быстрые сайты и интерфейсы под ключ. Фриланс, разовые задачи и поддержка." />
+  <meta property="og:title" content="Александр — Frontend / JavaScript разработчик" />
+  <meta property="og:description" content="Сайты и интерфейсы под ключ. Разовые задачи и поддержка." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/avatar@2x.png" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="assets/avatar.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="fx" aria-hidden="true">
+    <div class="fx__grid"></div>
+    <div class="fx__glow"></div>
+  </div>
+
+  <header class="header">
+    <nav class="nav container" aria-label="Главная навигация">
+      <a class="logo" href="#top" aria-label="На главную">
+        <span class="logo__mark">A</span>
+        <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
+      </a>
+
+      <button class="nav__toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__links" data-nav-links>
+        <a href="#projects">Кейсы</a>
+        <a href="#services">Услуги</a>
+        <a href="prices.html">Цены</a>
+        <a href="#process">Процесс</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav__cta" href="#contact">Связаться</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero__left">
+        <p class="eyebrow">
+          <span class="pill">Frontend</span>
+          <span class="pill">JavaScript / TypeScript</span>
+          <span class="pill">React</span>
+        </p>
+
+        <h1 class="h1">
+          Делаю быстрые сайты и интерфейсы,
+          <span class="accent">которые приносят заявки</span>.
+        </h1>
+
+        <p class="lead">
+          Беру <b>разовые заказы</b> и <b>сопровождение</b>: от аккуратной адаптивной верстки до SPA на React/TypeScript
+          и интеграции с API. Работаю прозрачно: фиксирую объём работ, сроки и результат до старта.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#contact">Обсудить задачу</a>
+          <a class="btn btn--ghost" href="#projects">Смотреть кейсы</a>
+          <a class="btn btn--text" href="resume/Aleksandr-Frontend-Resume.pdf" target="_blank" rel="noopener">
+            Скачать резюме PDF
+          </a>
+        </div>
+
+        <div class="hero__chips">
+          <div class="chip">
+            <div class="chip__title">Фокус</div>
+            <div class="chip__value">Скорость, UX, понятный код</div>
+          </div>
+          <div class="chip">
+            <div class="chip__title">Формат</div>
+            <div class="chip__value">Фриланс • разовые задачи • поддержка</div>
+          </div>
+          <div class="chip">
+            <div class="chip__title">Деплой</div>
+            <div class="chip__value">GitHub Pages / Vercel / хостинг клиента</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__right" aria-label="Карточка профиля">
+        <div class="card card--profile">
+          <div class="avatar-wrap">
+            <img class="avatar" src="assets/avatar.png" srcset="assets/avatar@2x.png 2x" alt="Фото разработчика" />
+            <span class="ring" aria-hidden="true"></span>
+          </div>
+
+          <div class="profile">
+            <div class="profile__name">Александр</div>
+            <div class="profile__role">Frontend / JavaScript разработчик</div>
+
+            <div class="profile__status">
+              <span class="dot dot--ok" aria-hidden="true"></span>
+              <span>Открыт к разовым задачам</span>
+            </div>
+
+            <div class="profile__links">
+              <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">GitHub</a>
+              <button class="link link--btn" type="button" data-copy="mamont861@yandex.ru">Скопировать email</button>
+              <button class="link link--btn" type="button" data-copy="@mamont861">Скопировать Telegram</button>
+            </div>
+
+            <div class="profile__note">
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--mini">
+          <div class="mini">
+            <div class="mini__title">Быстрый старт</div>
+            <ol class="mini__list">
+              <li>Короткий бриф → уточняем задачу</li>
+              <li>Оценка → фиксируем сроки/стоимость</li>
+              <li>Релиз → передача исходников и инструкции</li>
+            </ol>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats container" aria-label="Коротко обо мне">
+      <div class="stat">
+        <div class="stat__num">46</div>
+        <div class="stat__label">публичных репозиториев на GitHub</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">7+</div>
+        <div class="stat__label">демо‑проектов (GitHub Pages)</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">JS/TS</div>
+        <div class="stat__label">современный стек и сборка</div>
+      </div>
+    </section>
+
+    <section id="projects" class="section container">
+      <header class="section__head">
+        <h2 class="h2">Кейсы и демо</h2>
+        <p class="section__desc">
+          Ниже — выбранные демо и сайты (ссылки/исходники, где есть). По запросу могу собрать «кейсы под клиента» — 2–3 релевантных примера + описание решения.
+        </p>
+      </header>
+
+      <div class="grid grid--projects">
+
+        <!-- Sharvkube.ru -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Sharvkube.ru</h3>
+            <p class="muted">Сайт услуг • разработка + SEO</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">UI</span>
+            <span class="tag">SEO</span>
+          </div>
+
+          <p class="project__desc">
+            Минималистичный сайт‑визитка с прайсом и офертой. Сделан под скорость, понятную структуру и заявки.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://sharvkube.ru" target="_blank" rel="noopener">Открыть сайт</a>
+          </div>
+        </article>
+
+        <!-- 1 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Booking Tickets</h3>
+            <p class="muted">Дипломный проект • интерфейс бронирования</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">TypeScript</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Vite</span>
+          </div>
+
+          <p class="project__desc">
+            Проект с упором на структуру, компонентный подход и аккуратный UI.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/FE_diploma/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/FE_diploma" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">React CRUD</h3>
+            <p class="muted">CRUD‑интерфейс • работа с состоянием</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">REST</span>
+          </div>
+
+          <p class="project__desc">
+            Типовой кейс для админок: создание/редактирование/удаление, обновление списка, аккуратная обработка ошибок.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/React_lifecycle-crud-frontend/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/React_lifecycle-crud-frontend" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Watches</h3>
+            <p class="muted">UI‑виджеты • жизненный цикл</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">UI</span>
+          </div>
+
+          <p class="project__desc">
+            Небольшое приложение: демонстрация работы с компонентами и обновлением данных в интерфейсе.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/React_lifecycle-watches/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/React_lifecycle-watches" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Yandex Composition</h3>
+            <p class="muted">Композиция компонентов • React</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">CSS</span>
+          </div>
+
+          <p class="project__desc">
+            Практика компонентной композиции и переиспользования UI.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/React_composition-yandex/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/React_composition-yandex" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Animation</h3>
+            <p class="muted">Анимации и интерактив • Vanilla JS</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Webpack</span>
+          </div>
+
+          <p class="project__desc">
+            Небольшой интерактивный проект: работа с DOM, событиями и анимациями.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/AHJ-Animation/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/AHJ-Animation" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">Drag & Drop Files</h3>
+            <p class="muted">Файлы • DnD • формы</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">DnD</span>
+            <span class="tag">UI</span>
+          </div>
+
+          <p class="project__desc">
+            Практика взаимодействия с пользовательскими файлами и удобного UX через drag-and-drop.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/AHJ-Working-with-files-DnD/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/AHJ-Working-with-files-DnD" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="card card--project" data-reveal>
+          <div class="project__top">
+            <h3 class="h3">HTTP Frontend</h3>
+            <p class="muted">Запросы • работа с сетью</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">HTTP</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">UI</span>
+          </div>
+
+          <p class="project__desc">
+            Практика сетевого взаимодействия и отображения данных в интерфейсе.
+          </p>
+
+          <div class="project__links">
+            <a class="btn btn--small" href="https://aleksandr861.github.io/AHJ-HTTP-Frontend/" target="_blank" rel="noopener">Демо</a>
+            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/AHJ-HTTP-Frontend" target="_blank" rel="noopener">Код</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="section__foot">
+        <a class="btn btn--ghost" href="https://github.com/Aleksandr861?tab=repositories" target="_blank" rel="noopener">
+          Смотреть все репозитории →
+        </a>
+      </div>
+    </section>
+
+    <section id="services" class="section container">
+      <header class="section__head">
+        <h2 class="h2">Что могу сделать для вас</h2>
+        <p class="section__desc">
+          Формат — фриланс и разовые заказы. Подбираю решение под задачу: быстро «поправить и выпустить» или
+          собрать проект с нуля.
+        </p>
+      </header>
+
+      <div class="grid grid--services">
+        <article class="card card--service" data-reveal>
+          <h3 class="h3">Лендинг / промо‑страница</h3>
+          <p class="muted">Быстро, аккуратно, адаптивно</p>
+          <ul class="list">
+            <li>Адаптивная верстка (mobile‑first)</li>
+            <li>Формы, модалки, анимации</li>
+            <li>SEO‑минимум, мета‑теги</li>
+            <li>Деплой на хостинг / GitHub Pages</li>
+          </ul>
+        </article>
+
+        <article class="card card--service" data-reveal>
+          <h3 class="h3">Сайт компании</h3>
+          <p class="muted">Многостраничный сайт под контент</p>
+          <ul class="list">
+            <li>Компоненты и переиспользование</li>
+            <li>Страницы услуг/кейсов/контактов</li>
+            <li>Интеграции: карты, формы, CRM</li>
+            <li>Подключение аналитики</li>
+          </ul>
+        </article>
+
+        <article class="card card--service" data-reveal>
+          <h3 class="h3">SPA / админка</h3>
+          <p class="muted">React + TypeScript</p>
+          <ul class="list">
+            <li>Структура проекта и роутинг</li>
+            <li>CRUD‑экраны, таблицы, фильтры</li>
+            <li>Работа с REST API</li>
+            <li>Сборка (Vite/Webpack)</li>
+          </ul>
+        </article>
+
+        <article class="card card--service" data-reveal>
+          <h3 class="h3">Правки и поддержка</h3>
+          <p class="muted">Срочные и плановые задачи</p>
+          <ul class="list">
+            <li>Фиксы багов и верстки</li>
+            <li>Улучшение скорости/UX</li>
+            <li>Рефакторинг и порядок в коде</li>
+            <li>Небольшие фичи «под ключ»</li>
+          </ul>
+        </article>
+
+        <article class="card card--service" data-reveal>
+          <h3 class="h3">SEO‑продвижение</h3>
+          <p class="muted">Техническая оптимизация + рост поискового трафика</p>
+          <ul class="list">
+            <li>Аудит и план работ по приоритетам</li>
+            <li>Семантика и структура посадочных страниц</li>
+            <li>Скорость, мета‑теги, микроразметка</li>
+            <li>Ежемесячные отчёты и понятные метрики</li>
+          </ul>
+        </article>
+
+      </div>
+    
+
+      <div class="section__foot">
+        <a class="btn btn--ghost" href="prices.html">Смотреть прайс →</a>
+      </div>
+</section>
+
+    <section id="process" class="section container">
+      <header class="section__head">
+        <h2 class="h2">Как я работаю</h2>
+        <p class="section__desc">
+          Чтобы у вас не было сюрпризов по срокам и стоимости, работаю по простому процессу.
+        </p>
+      </header>
+
+      <div class="grid grid--process">
+        <div class="card card--step" data-reveal>
+          <div class="step__num">01</div>
+          <div class="step__title">Бриф</div>
+          <p class="muted">Разбираем задачу, цель, ограничения, референсы.</p>
+        </div>
+        <div class="card card--step" data-reveal>
+          <div class="step__num">02</div>
+          <div class="step__title">Оценка</div>
+          <p class="muted">Фиксирую объём работ, сроки и стоимость. Без «потом добавим ещё».</p>
+        </div>
+        <div class="card card--step" data-reveal>
+          <div class="step__num">03</div>
+          <div class="step__title">Разработка</div>
+          <p class="muted">По этапам: верстка → логика → интеграции → полировка.</p>
+        </div>
+        <div class="card card--step" data-reveal>
+          <div class="step__num">04</div>
+          <div class="step__title">Тест и релиз</div>
+          <p class="muted">Проверка, правки, деплой. Передаю исходники и инструкцию.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section container">
+      <header class="section__head">
+        <h2 class="h2">FAQ</h2>
+        <p class="section__desc">Коротко отвечаю на то, что обычно спрашивают в разовых заказах.</p>
+      </header>
+
+      <div class="grid grid--faq">
+        <details class="card card--faq" data-reveal>
+          <summary>Можно без ТЗ?</summary>
+          <p class="muted">Да. Помогу сформулировать требования через вопросы и примеры. После — фиксируем список работ письменно.</p>
+        </details>
+
+        <details class="card card--faq" data-reveal>
+          <summary>Сколько правок входит?</summary>
+          <p class="muted">Зависит от задачи. Обычно 1–2 итерации правок после сдачи этапа — в пределах согласованного объёма.</p>
+        </details>
+
+        <details class="card card--faq" data-reveal>
+          <summary>Что по оплате?</summary>
+          <p class="muted">Варианты: фикс за задачу / почасово / по этапам. Для разовых заказов чаще всего удобен фикс.</p>
+        </details>
+
+        <details class="card card--faq" data-reveal>
+          <summary>Можете «просто поправить верстку»?</summary>
+          <p class="muted">Да. Часто это быстрее всего: приезжаю в код, нахожу причину и чиню без лишнего переписывания.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact" class="section container">
+      <header class="section__head">
+        <h2 class="h2">Связаться и быстро описать задачу</h2>
+        <p class="section__desc">
+          Ниже — мини‑бриф. Заполните 3–4 поля, нажмите «Сформировать сообщение» и отправьте мне в Telegram или на email.
+        </p>
+      </header>
+
+      <div class="grid grid--contact">
+        <div class="card card--contact" data-reveal>
+          <h3 class="h3">Контакты</h3>
+
+          <div class="contact__rows">
+            <div class="contact__row">
+              <span class="muted">Email</span>
+              <a class="link" href="mailto:mamont861@yandex.ru">mamont861@yandex.ru</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">Telegram</span>
+              <a class="link" href="https://t.me/mamont861" target="_blank" rel="noopener">@mamont861</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">WhatsApp</span>
+              <a class="link" href="https://wa.me/79267834919" target="_blank" rel="noopener">+7&nbsp;926&nbsp;783‑49‑19</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">GitHub</span>
+              <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">github.com/Aleksandr861</a>
+            </div>
+          </div>
+
+
+          <div class="divider"></div>
+
+          <p class="muted">
+            Если нужно — сделаю <b>быстрый прототип</b> или «первый экран»,
+            чтобы вы увидели стиль и темп работы.
+          </p>
+        </div>
+
+        <form class="card card--brief" data-reveal data-brief-form>
+          <div class="field">
+            <label for="type">Тип задачи</label>
+            <select id="type" name="type">
+              <option>Лендинг</option>
+              <option>Сайт компании</option>
+              <option>SEO‑продвижение</option>
+              <option>SEO‑аудит</option>
+              <option>SPA / React</option>
+              <option>Правки / багфикс</option>
+              <option>Другое</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="goal">Цель</label>
+            <input id="goal" name="goal" placeholder="Напр.: собрать лендинг и подключить форму" />
+          </div>
+
+          <div class="field">
+            <label for="deadline">Срок</label>
+            <input id="deadline" name="deadline" placeholder="Напр.: до 10 января / 3–5 дней" />
+          </div>
+
+          <div class="field">
+            <label for="budget">Бюджет (если есть)</label>
+            <input id="budget" name="budget" placeholder="Напр.: 15 000 ₽ / обсуждается" />
+          </div>
+
+          <div class="field">
+            <label for="links">Ссылки / референсы</label>
+            <input id="links" name="links" placeholder="Figma, сайт‑пример, репозиторий..." />
+          </div>
+
+          <div class="field">
+            <label for="comment">Комментарий</label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Любые детали: CMS, контент, интеграции..."></textarea>
+          </div>
+
+          <div class="brief__actions">
+            <button class="btn btn--primary" type="button" data-brief-build>Сформировать сообщение</button>
+            <button class="btn btn--ghost" type="reset">Очистить</button>
+          </div>
+
+          <div class="field">
+            <label for="result">Текст для отправки</label>
+            <textarea id="result" name="result" rows="5" readonly></textarea>
+            <div class="brief__actions">
+              <button class="btn btn--small" type="button" data-copy-target="#result">Скопировать</button>
+              <a class="btn btn--small btn--ghost" href="mailto:mamont861@yandex.ru" target="_blank" rel="noopener" data-mailto>Открыть email</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer container">
+      <div class="footer__left">
+        <div class="logo logo--small">
+          <span class="logo__mark">A</span>
+          <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
+        </div>
+        <p class="muted">© <span data-year></span> • Frontend / JavaScript разработчик</p>
+        <p class="muted footer__legal">
+          ИП Мамонтов Александр Геннадьевич • ИНН 772791557695 • ОГРНИП 325774600533820
+        </p>
+      </div>
+
+      <div class="footer__right">
+        <a class="link" href="#top">Наверх ↑</a>
+        <a class="link" href="prices.html">Цены</a>
+        <a class="link" href="oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+        <a class="link" href="resume/Aleksandr-Frontend-Resume.pdf" target="_blank" rel="noopener">PDF</a>
+        <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+  </main>
+
+
+  <div class="floating-actions" aria-label="Быстрые контакты">
+    <a class="fab fab--telegram" href="https://t.me/mamont861" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <a class="fab fab--whatsapp" href="https://wa.me/79267834919" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 11.5a8.5 8.5 0 1 1-16.5 5.2L3 21l4-1.4A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M8.5 10.5c.4 2.3 2.2 4.1 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M13.5 15c.8-.2 1.6-.6 2.2-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden data-toast>
+    <span data-toast-text>Скопировано</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
