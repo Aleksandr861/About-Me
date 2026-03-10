@@ -1,0 +1,11 @@
+Идеи домена для портфолио (для эффекта):
+- aleksandr-frontend.dev
+- aleksandr-js.dev
+- a861.dev
+- aleksandr861.dev
+- aleksandr.dev (если свободен)
+- aleksandr.site / aleksandr.me
+
+Можно:
+- GitHub Pages (бесплатно) + домен
+- Vercel (бесплатно) + домен
