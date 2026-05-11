@@ -1,74 +1,70 @@
-<div align="center">
-  <img src="https://github.com/Aleksandr861.png?size=220" width="220" alt="Александр" />
-  <h1>Александр</h1>
-  <p><b>Frontend Developer</b> • React / TypeScript / JavaScript</p>
+# Александр Мамонтов
 
-  <p>
-    <a href="mailto:mamont861@yandex.ru">📧 Email</a> ·
-    <a href="https://t.me/mamont861">💬 Telegram</a> ·
-    <a href="https://github.com/Aleksandr861">🐙 GitHub</a>
-  </p>
-</div>
+<img src="assets/avatar.png" width="320" alt="Александр Мамонтов" />
+
+**Full Stack Web / CMS / PWA разработчик**
+Сайты, CMS‑проекты, PWA, API‑интеграции, Telegram‑боты, поддержка и деплой.
+
+[Email](mailto:mamont861@yandex.ru) · [Telegram](https://t.me/mamont861) · [GitHub](https://github.com/Aleksandr861) · [Resume PDF](resume/Aleksandr-FullStack-Resume.pdf)
 
 ---
 
-## О себе
-Фронтенд‑разработчик (фриланс).  
-Делаю адаптивные интерфейсы на **React / TypeScript** и на чистом **JavaScript**.
+## Профиль
 
-**Фокус:** аккуратный UI · понятный код · предсказуемый результат · без «магии» и оверинжиниринга.
+Разрабатываю web‑проекты под реальный запуск: от структуры и интерфейса до CMS, backend‑логики, интеграций, публикации и поддержки.
+
+Работаю с коммерческими сайтами, образовательными проектами, PWA‑приложениями, Telegram‑ботами и небольшими backend‑сервисами. Flutter/Dart использую как дополнительный стек для PWA и mobile‑ориентированных интерфейсов.
 
 ---
 
 ## Стек
-- **JavaScript (ES6+)**, **TypeScript**
-- **React**
-- **HTML5 / CSS3** (адаптив, Flex/Grid)
-- **Vite**, **Webpack**
-- **Git**
+
+**Frontend:** JavaScript, TypeScript, React, HTML5, CSS3, Vite, Webpack
+**Backend / API:** PHP, REST API, FastAPI, Python, webhooks, Telegram Bot API
+**CMS:** OpenSquare, Nubex, контентные страницы, формы, SEO‑структура
+**PWA / Mobile:** Flutter, Dart, PWA, WASM, Firebase, Provider, go_router
+**Data / Infra:** Supabase, PostgreSQL, Docker, Nginx, GitHub Actions, GitHub Pages, Vercel, TimeWeb
 
 ---
 
-## Проекты
+## Работы
 
-| Проект | Коротко | Стек | Ссылки |
+| Проект | Задача | Стек | Ссылка |
 |---|---|---|---|
-| 🎟️ Booking Tickets | Интерфейс бронирования билетов | TypeScript, CSS | [Demo](https://aleksandr861.github.io/FE_diploma/) · [GitHub](https://github.com/Aleksandr861/FE_diploma) |
-| 🧱 React CRUD | CRUD‑интерфейс + работа с API | React, TypeScript | [Demo](https://aleksandr861.github.io/React_lifecycle-crud-frontend/) · [Frontend](https://github.com/Aleksandr861/React_lifecycle-crud-frontend) · [Backend](https://github.com/Aleksandr861/React_lifecycle-crud-backend) |
-| ⌚ Watches | UI‑виджет (lifecycle) | React, TypeScript | [Demo](https://aleksandr861.github.io/React_lifecycle-watches/) · [GitHub](https://github.com/Aleksandr861/React_lifecycle-watches) |
-| 📂 DnD Files | Drag & Drop + работа с файлами | Vanilla JavaScript | [Demo](https://aleksandr861.github.io/AHJ-Working-with-files-DnD/) · [GitHub](https://github.com/Aleksandr861/AHJ-Working-with-files-DnD) |
+| **2HEARTS** | Сайт знакомств и PWA‑приложение: профили, мэтчинг, чат, медиа, push, backend‑сервисы | Flutter, Dart, PWA, WASM, Supabase, Firebase, FastAPI, Docker, Nginx | [2-hearts.ru](https://2-hearts.ru) |
+| **Ozon5min Bot** | Telegram‑бот под прикладной пользовательский сценарий | PHP, Telegram Bot API, webhook, automation | [t.me/ozon5min_bot](https://t.me/ozon5min_bot) |
+| **Sharvkube.ru** | Корпоративный сайт услуг с документами, формами, Telegram‑уведомлениями и SEO‑базой | HTML, CSS, JavaScript, PHP, Telegram, GitHub Actions, TimeWeb | [sharvkube.ru](https://sharvkube.ru) |
+| **Лицей «Интеллект»** | Сайт образовательной организации: структура разделов, новости, документы, контакты, доступность | Nubex, CMS, HTML/CSS, jQuery, SEO | [intellect-balashikha.ru](https://intellect-balashikha.ru) |
+| **Grand Tours** | Англоязычный корпоративный сайт travel‑компании | OpenSquare, CMS, B2B, контентная структура | [grandtoursdmc.com](https://www.grandtoursdmc.com/) |
+| **React CRUD** | SPA‑демо с CRUD‑сценариями и работой с API | React, TypeScript, REST | [Demo](https://aleksandr861.github.io/React_lifecycle-crud-frontend/) · [Code](https://github.com/Aleksandr861/React_lifecycle-crud-frontend) |
+| **Booking Tickets** | Интерфейс бронирования билетов | TypeScript, CSS, Vite | [Demo](https://aleksandr861.github.io/FE_diploma/) · [Code](https://github.com/Aleksandr861/FE_diploma) |
 
-### Верстка / многостраничные проекты
-| Проект | Коротко | Стек | Ссылки |
-|---|---|---|---|
-| 🛍️ RoastLab (ecommerce) | Каталог/товар/корзина (localStorage) | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/ecommerce_coffee/) · [GitHub](https://github.com/Aleksandr861/ecommerce_coffee) |
-| 🏥 Corporate Clinic | Корпоративный сайт (несколько страниц) | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/corporate_clinic/) · [GitHub](https://github.com/Aleksandr861/corporate_clinic) |
-| 🛠️ Ремонт под ключ | Лендинг + квиз/FAQ/модалка | HTML, CSS, JS | [Demo](https://aleksandr861.github.io/landing_remont/) · [GitHub](https://github.com/Aleksandr861/landing_remont) |
+---
+
+## Что делаю
+
+- сайты компаний, лендинги, контентные и CMS‑проекты;
+- PWA и Flutter Web‑приложения;
+- SPA и интерфейсы на React / TypeScript;
+- REST API, webhooks, Telegram‑боты и интеграции;
+- формы, карты, документы, уведомления, аналитика;
+- SEO‑база, скорость, деплой, поддержка и доработки.
 
 ---
 
 ## Формат работы
-Бриф → оценка → разработка → проверка → деплой → передача исходников
 
-**Форматы:** фикс / почасово / по этапам
+1. Уточняю цель, ограничения и критерии готовности.
+2. Фиксирую объём, сроки и стоимость до старта.
+3. Разбиваю работу на этапы и показываю прогресс.
+4. Тестирую, публикую, передаю исходники и инструкции.
 
----
-
-<details>
-  <summary><b>📊 GitHub Stats</b></summary>
-  <br/>
-
-  <img src="https://github-readme-stats.vercel.app/api?username=Aleksandr861&show_icons=true&hide_title=true" alt="GitHub stats" />
-  <br/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aleksandr861&layout=compact" alt="Top langs" />
-</details>
+**Форматы:** фикс / почасово / по этапам.
 
 ---
 
-## English (short)
-Frontend Developer (Freelance).  
-Building responsive UI with **React, TypeScript, JavaScript**. Clean code, predictable delivery.
+## Контакты
 
-- Email: <a href="mailto:mamont861@yandex.ru">mamont861@yandex.ru</a>
-- Telegram: <a href="https://t.me/mamont861">@mamont861</a>
-- GitHub: <a href="https://github.com/Aleksandr861">Aleksandr861</a>
+- Email: [mamont861@yandex.ru](mailto:mamont861@yandex.ru)
+- Telegram: [@mamont861](https://t.me/mamont861)
+- GitHub: [github.com/Aleksandr861](https://github.com/Aleksandr861)

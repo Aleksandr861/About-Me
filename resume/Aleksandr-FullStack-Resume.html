@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Александр Мамонтов — Full Stack Web / CMS / PWA Developer</title>
+  <meta name="description" content="Одностраничное резюме Full Stack Web / CMS / PWA разработчика." />
+  <style>
+    :root{
+      --ink:#101010;
+      --muted:#5f6368;
+      --line:#d9d9d9;
+      --soft:#f5f5f5;
+      --js:#f7df1e;
+      --paper:#fff;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ background:#e9e9e9; }
+    body{
+      margin:0;
+      color:var(--ink);
+      background:#e9e9e9;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.28;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    p{ margin:0; }
+    ul{ margin:5px 0 0; padding-left:14px; }
+    li{ margin:2px 0; }
+
+    .sheet{
+      width:210mm;
+      min-height:297mm;
+      margin:16px auto;
+      padding:10mm;
+      background:var(--paper);
+      box-shadow:0 20px 60px rgba(0,0,0,.16);
+      overflow:hidden;
+    }
+
+    .top{
+      display:grid;
+      grid-template-columns:1fr 34mm;
+      gap:8mm;
+      padding-bottom:5mm;
+      border-bottom:2px solid var(--ink);
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 7px;
+      background:var(--js);
+      color:#000;
+      font:800 10px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      border:1px solid #000;
+    }
+
+    h1{
+      margin:7px 0 2px;
+      font-size:28px;
+      line-height:.98;
+      letter-spacing:-.02em;
+    }
+
+    .role{
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .summary{
+      margin-top:7px;
+      max-width:132mm;
+      color:#222;
+      font-size:9.6px;
+    }
+
+    .contact{
+      display:flex;
+      flex-wrap:wrap;
+      gap:5px 9px;
+      margin-top:7px;
+      color:#222;
+      font-size:9.2px;
+      font-weight:650;
+    }
+
+    .photo{
+      width:34mm;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      object-position:center 42%;
+      border:2px solid #000;
+      filter:grayscale(1);
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:56mm 1fr;
+      gap:7mm;
+      padding-top:6mm;
+    }
+
+    section + section{ margin-top:5mm; }
+    h2{
+      margin:0 0 3mm;
+      font-size:10px;
+      line-height:1;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    h2::before{
+      content:"";
+      width:13px;
+      height:13px;
+      background:var(--js);
+      border:1px solid #000;
+      display:inline-block;
+    }
+
+    h3{
+      margin:0;
+      font-size:10.5px;
+      line-height:1.18;
+    }
+
+    .muted{ color:var(--muted); }
+    .small{ font-size:8.8px; }
+
+    .tag-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+    }
+    .tag{
+      padding:3px 5px;
+      border:1px solid #000;
+      background:#fff;
+      font:700 8px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .tag--yellow{ background:var(--js); }
+
+    .box{
+      border:1px solid var(--line);
+      background:#fafafa;
+      padding:7px;
+    }
+
+    .skill{
+      margin-bottom:7px;
+    }
+    .skill b{
+      display:block;
+      font-size:9px;
+      margin-bottom:3px;
+    }
+
+    .project{
+      display:grid;
+      grid-template-columns:31mm 1fr;
+      gap:4mm;
+      padding:4mm 0;
+      border-top:1px solid var(--line);
+    }
+    .project:first-of-type{
+      padding-top:0;
+      border-top:0;
+    }
+    .project__title{
+      display:grid;
+      gap:3px;
+      align-content:start;
+    }
+    .badge{
+      display:inline-block;
+      width:max-content;
+      max-width:100%;
+      padding:3px 5px;
+      background:var(--js);
+      border:1px solid #000;
+      font:800 8px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .project p{
+      font-size:9px;
+      color:#242424;
+    }
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px 8px;
+      margin-top:3px;
+      color:#000;
+      font-size:8.2px;
+      font-weight:750;
+    }
+
+    .footer{
+      margin-top:5mm;
+      padding-top:3mm;
+      border-top:1px solid #000;
+      display:flex;
+      justify-content:space-between;
+      gap:8mm;
+      color:#333;
+      font-size:8.2px;
+    }
+
+    @page{ size:A4; margin:0; }
+    @media print{
+      html, body{ background:#fff; }
+      .sheet{
+        width:210mm;
+        height:297mm;
+        min-height:297mm;
+        margin:0;
+        box-shadow:none;
+        print-color-adjust:exact;
+        -webkit-print-color-adjust:exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="top">
+      <div>
+        <div class="kicker">JS style resume</div>
+        <h1>Александр Мамонтов</h1>
+        <p class="role">Full Stack Web / CMS / PWA Developer</p>
+        <p class="summary">
+          Разрабатываю сайты, CMS‑проекты, PWA, API‑интеграции и Telegram‑ботов под реальный запуск.
+          Закрываю структуру, интерфейс, backend‑логику, публикацию, SEO‑базу и поддержку.
+        </p>
+        <div class="contact">
+          <span>mamont861@yandex.ru</span>
+          <span>@mamont861</span>
+          <span>github.com/Aleksandr861</span>
+          <span>+7 926 783-49-19</span>
+        </div>
+      </div>
+      <img class="photo" src="../assets/avatar.png" alt="Александр Мамонтов" />
+    </header>
+
+    <main class="layout">
+      <aside>
+        <section>
+          <h2>Стек</h2>
+          <div class="tag-list">
+            <span class="tag tag--yellow">JavaScript</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag tag--yellow">PHP</span>
+            <span class="tag">REST API</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Python</span>
+            <span class="tag tag--yellow">CMS</span>
+            <span class="tag">OpenSquare</span>
+            <span class="tag">Nubex</span>
+            <span class="tag tag--yellow">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">PWA</span>
+            <span class="tag">WASM</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">GitHub Actions</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Компетенции</h2>
+          <div class="box">
+            <div class="skill">
+              <b>Frontend</b>
+              <p class="small muted">React/TS, адаптив, формы, SPA, UI‑логика, сборка.</p>
+            </div>
+            <div class="skill">
+              <b>Backend / API</b>
+              <p class="small muted">PHP, REST, webhooks, Telegram Bot API, FastAPI.</p>
+            </div>
+            <div class="skill">
+              <b>CMS / SEO</b>
+              <p class="small muted">Структура страниц, контент, документы, формы, мета‑теги.</p>
+            </div>
+            <div class="skill">
+              <b>PWA / Mobile</b>
+              <p class="small muted">Flutter/Dart, PWA, Supabase, Firebase, push.</p>
+            </div>
+            <div class="skill">
+              <b>Delivery</b>
+              <p class="small muted">GitHub Pages, Vercel, TimeWeb, Docker, Nginx, инструкции.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Формат</h2>
+          <div class="box small">
+            <p><b>Фриланс / проектная разработка / поддержка.</b></p>
+            <ul>
+              <li>бриф и оценка до старта;</li>
+              <li>работа по этапам;</li>
+              <li>деплой и передача исходников;</li>
+              <li>поддержка после релиза.</li>
+            </ul>
+          </div>
+        </section>
+      </aside>
+
+      <div>
+        <section>
+          <h2>Работы</h2>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>2HEARTS</h3>
+              <span class="badge">Flutter / PWA</span>
+            </div>
+            <div>
+              <p>Сайт знакомств и PWA: профили, мэтчинг, чат, медиа, push‑уведомления, backend‑сервисы, рекомендации, установка как приложение.</p>
+              <div class="links"><span>Flutter</span><span>Dart</span><span>WASM</span><span>Supabase</span><span>Firebase</span><span>FastAPI</span><span>Docker</span><span>2-hearts.ru</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>Ozon5min Bot</h3>
+              <span class="badge">Bot API</span>
+            </div>
+            <div>
+              <p>Telegram‑бот под прикладной сценарий: команды, webhook, серверная логика, автоматизация и понятный пользовательский поток.</p>
+              <div class="links"><span>PHP</span><span>Telegram Bot API</span><span>webhook</span><span>t.me/ozon5min_bot</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>Sharvkube.ru</h3>
+              <span class="badge">Corporate</span>
+            </div>
+            <div>
+              <p>Корпоративный сайт услуг: многостраничная структура, документы, формы, Telegram‑уведомления, аналитика, автодеплой, SEO‑база.</p>
+              <div class="links"><span>HTML</span><span>CSS</span><span>JS</span><span>PHP</span><span>GitHub Actions</span><span>TimeWeb</span><span>sharvkube.ru</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>Лицей «Интеллект»</h3>
+              <span class="badge">CMS</span>
+            </div>
+            <div>
+              <p>Сайт образовательной организации: разделы, новости, документы, контакты, версия для слабовидящих, обязательные страницы школы.</p>
+              <div class="links"><span>Nubex</span><span>CMS</span><span>HTML/CSS</span><span>jQuery</span><span>SEO</span><span>intellect-balashikha.ru</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>Grand Tours</h3>
+              <span class="badge">B2B CMS</span>
+            </div>
+            <div>
+              <p>Англоязычный корпоративный сайт travel‑компании: структура услуг и направлений, B2B‑контент, форма связи.</p>
+              <div class="links"><span>OpenSquare</span><span>CMS</span><span>B2B</span><span>grandtoursdmc.com</span></div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__title">
+              <h3>React CRUD / Booking</h3>
+              <span class="badge">SPA demos</span>
+            </div>
+            <div>
+              <p>CRUD, состояние, REST‑запросы, бронирование, пользовательские потоки, TypeScript‑структура и аккуратный UI.</p>
+              <div class="links"><span>React</span><span>TypeScript</span><span>REST</span><span>Vite</span><span>GitHub Pages</span></div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>ИП Мамонтов Александр Геннадьевич · ИНН 772791557695 · ОГРНИП 325774600533820</span>
+      <span>PDF · A4 · one page</span>
+    </footer>
+  </article>
+</body>
+</html>
