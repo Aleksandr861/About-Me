@@ -371,8 +371,18 @@ code{
 .section{ padding: 56px 0 0; }
 .section__head{ display:grid; gap: 10px; margin-bottom: 18px; }
 .section__foot{ margin-top: 18px; }
+.section__foot .btn--ghost{
+  color:#fff;
+  border-color: rgba(255,255,255,.4);
+}
+.section__foot .btn--ghost:hover{
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.6);
+  color:#fff;
+}
+.section > .section__head .h1,
 .section > .section__head .h2{ color:#fff; }
-.section > .section__head .section__desc{ color: rgba(255,255,255,.72); }
+.section > .section__head .section__desc{ color:#fff; }
 
 /* Grids */
 .grid{ display:grid; gap: 12px; }
