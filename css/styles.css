@@ -466,11 +466,13 @@ input:focus, textarea:focus, select:focus{
 .footer__left{ display:flex; flex-direction:column; gap: 8px; }
 .footer__right{ display:flex; align-items:center; gap: 12px; flex-wrap:wrap; }
 
+.footer .muted{ color:#fff; }
+
 .footer__legal{
   margin: 0;
   max-width: 72ch;
   font-size: .92rem;
-  color: rgba(255,255,255,.62);
+  color: #fff;
 }
 
 .toast{
