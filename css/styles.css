@@ -412,6 +412,27 @@ code{
 .project__desc{ margin:0; color: var(--muted); }
 .project__links{ margin-top:auto; display:flex; gap: 10px; flex-wrap:wrap; }
 
+.grid--certs{ grid-template-columns: repeat(3, 1fr); }
+.card--cert{ padding: 14px; display:flex; flex-direction:column; gap: 12px; }
+.cert__img{
+  display:block;
+  border-radius: 12px;
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.cert__img img{
+  display:block;
+  width:100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+.card--cert:hover .cert__img img{ transform: scale(1.02); }
+.cert__body{ display:grid; gap: 6px; }
+.cert__body .muted,
+.cert__body .small{ margin: 0; }
+
 .card--service{ padding: 18px; }
 .card--service .muted{ margin: 0 0 10px; }
 .list{ margin: 0; padding-left: 18px; color: var(--muted); }
@@ -605,6 +626,7 @@ input:focus, textarea:focus, select:focus{
   .hero{ grid-template-columns: 1fr; }
   .hero__chips{ grid-template-columns: 1fr; }
   .grid--projects{ grid-template-columns: repeat(2, 1fr); }
+  .grid--certs{ grid-template-columns: repeat(2, 1fr); }
   .grid--stack{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid--process{ grid-template-columns: repeat(2, 1fr); }
   .grid--contact{ grid-template-columns: 1fr; }
@@ -634,6 +656,7 @@ input:focus, textarea:focus, select:focus{
   .nav__links.is-open{ display:flex; }
 
   .grid--projects{ grid-template-columns: 1fr; }
+  .grid--certs{ grid-template-columns: 1fr; }
   .grid--stack{ grid-template-columns: 1fr; }
   .grid--services{ grid-template-columns: 1fr; }
 
