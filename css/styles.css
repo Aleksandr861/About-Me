@@ -420,6 +420,7 @@ code{
   overflow:hidden;
   border: 1px solid var(--line);
   background: #fff;
+  cursor: zoom-in;
 }
 .cert__img img{
   display:block;
@@ -621,6 +622,43 @@ input:focus, textarea:focus, select:focus{
 .fab--whatsapp{ color: #16a34a; }
 
 
+/* Certificates lightbox */
+.lightbox{
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(15, 6, 26, .88);
+  backdrop-filter: blur(10px);
+}
+.lightbox[hidden]{ display:none; }
+.lightbox__img{
+  max-width: min(1100px, 100%);
+  max-height: 100%;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.lightbox__close{
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.1);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .15s ease;
+}
+.lightbox__close:hover{ background: rgba(255,255,255,.22); }
+
 /* Responsive */
 @media (max-width: 980px){
   .hero{ grid-template-columns: 1fr; }
@@ -659,6 +697,9 @@ input:focus, textarea:focus, select:focus{
   .grid--certs{ grid-template-columns: 1fr; }
   .grid--stack{ grid-template-columns: 1fr; }
   .grid--services{ grid-template-columns: 1fr; }
+
+  .lightbox{ padding: 12px; }
+  .lightbox__close{ top: 10px; right: 10px; }
 
   .stats{ grid-template-columns: 1fr; }
   .footer{ flex-direction: column; align-items:flex-start; }

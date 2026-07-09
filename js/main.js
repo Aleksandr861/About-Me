@@ -114,6 +114,42 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // ---------- certificates lightbox ----------
+  const certLinks = $$(".cert__img");
+  if (certLinks.length) {
+    const box = document.createElement("div");
+    box.className = "lightbox";
+    box.hidden = true;
+    box.innerHTML =
+      '<button class="lightbox__close" type="button" aria-label="Закрыть">✕</button><img class="lightbox__img" alt="" />';
+    document.body.appendChild(box);
+
+    const boxImg = $(".lightbox__img", box);
+    const closeBox = () => {
+      box.hidden = true;
+      document.body.style.overflow = "";
+    };
+
+    certLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const thumb = $("img", link);
+        boxImg.src = link.getAttribute("href");
+        boxImg.alt = thumb ? thumb.alt : "";
+        box.hidden = false;
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    box.addEventListener("click", (e) => {
+      if (e.target !== boxImg) closeBox();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !box.hidden) closeBox();
+    });
+  }
+
   // ---------- brief builder ----------
   const form = $("[data-brief-form]");
   const buildBtn = $("[data-brief-build]");
