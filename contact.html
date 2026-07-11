@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#f8fafc" />
+  <title>Связаться — Александр Мамонтов</title>
+  <meta name="description" content="Связаться и быстро описать задачу: мини-бриф, Telegram, email, WhatsApp, MAX." />
+  <meta property="og:title" content="Связаться — Александр Мамонтов" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="fx" aria-hidden="true">
+    <div class="fx__grid"></div>
+    <div class="fx__glow"></div>
+  </div>
+
+  <header class="header">
+    <nav class="nav container" aria-label="Главная навигация">
+      <a class="logo" href="index.html" aria-label="На главную">
+        <span class="logo__mark">A</span>
+        <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
+      </a>
+      <button class="nav__toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav__links" data-nav-links>
+        <a href="index.html">Главная</a>
+        <a href="cases.html">Кейсы</a>
+        <a href="stack.html">Стек</a>
+        <a href="prices.html">Цены</a>
+        <a href="certificates.html">Сертификаты</a>
+        <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
+        <a href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">Резюме</a>
+        <a class="nav__cta" href="contact.html">Связаться</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section id="contact" class="section container">
+      <header class="section__head">
+        <h1 class="h1">Связаться и быстро описать задачу</h1>
+        <p class="section__desc">
+          Ниже — мини‑бриф. Заполните 3–4 поля, нажмите «Сформировать сообщение» и отправьте мне в Telegram или на email.
+        </p>
+      </header>
+
+      <div class="grid grid--contact">
+        <div class="card card--contact" data-reveal>
+          <h3 class="h3">Контакты</h3>
+
+          <div class="contact__rows">
+            <div class="contact__row">
+              <span class="muted">Email</span>
+              <a class="link" href="mailto:mamont861@yandex.ru">mamont861@yandex.ru</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">Telegram</span>
+              <a class="link" href="https://t.me/mamont861" target="_blank" rel="noopener">@mamont861</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">WhatsApp</span>
+              <a class="link" href="https://wa.me/79267834919" target="_blank" rel="noopener">+7&nbsp;926&nbsp;783‑49‑19</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">MAX</span>
+              <a class="link" href="https://max.ru/u/f9LHodD0cOIFAKS7X9CZz9I0nlarjeqX8mJEiZmDGm6aEaEq2S-WLDkgWZs" target="_blank" rel="noopener">Написать в MAX</a>
+            </div>
+            <div class="contact__row">
+              <span class="muted">GitHub</span>
+              <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">github.com/Aleksandr861</a>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Profi.ru widget start -->
+          <div class="profi-widget" data-id="4f45b77bb21a78e8087af4005706b823" data-type="210x190">
+            Powered by <a href="https://profi.ru/profile/MamontovAG4">Profi.ru</a>
+          </div>
+          <script src="https://profi.ru/jqs/widget/widget.js"></script>
+          <!-- Profi.ru widget end -->
+
+          <div class="divider"></div>
+
+          <p class="muted">
+            Если нужно — сделаю <b>быстрый прототип</b> или «первый экран»,
+            чтобы вы увидели стиль и темп работы.
+          </p>
+        </div>
+
+        <form class="card card--brief" data-reveal data-brief-form>
+          <div class="field">
+            <label for="type">Тип задачи</label>
+            <select id="type" name="type">
+              <option>Лендинг</option>
+              <option>Сайт компании</option>
+              <option>CMS / контентный сайт</option>
+              <option>PWA / Flutter Web</option>
+              <option>Telegram‑бот</option>
+              <option>SEO‑продвижение</option>
+              <option>SEO‑аудит</option>
+              <option>SPA / React</option>
+              <option>API / интеграции</option>
+              <option>Flutter / Dart</option>
+              <option>Правки / багфикс</option>
+              <option>Другое</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="goal">Цель</label>
+            <input id="goal" name="goal" placeholder="Напр.: собрать лендинг и подключить форму" />
+          </div>
+
+          <div class="field">
+            <label for="deadline">Срок</label>
+            <input id="deadline" name="deadline" placeholder="Напр.: до 10 января / 3–5 дней" />
+          </div>
+
+          <div class="field">
+            <label for="budget">Бюджет (если есть)</label>
+            <input id="budget" name="budget" placeholder="Напр.: 15 000 ₽ / обсуждается" />
+          </div>
+
+          <div class="field">
+            <label for="links">Ссылки / референсы</label>
+            <input id="links" name="links" placeholder="Figma, сайт‑пример, репозиторий..." />
+          </div>
+
+          <div class="field">
+            <label for="comment">Комментарий</label>
+            <textarea id="comment" name="comment" rows="3" placeholder="Любые детали: CMS, контент, интеграции..."></textarea>
+          </div>
+
+          <div class="brief__actions">
+            <button class="btn btn--primary" type="button" data-brief-build>Сформировать сообщение</button>
+            <button class="btn btn--ghost" type="reset">Очистить</button>
+          </div>
+
+          <div class="field">
+            <label for="result">Текст для отправки</label>
+            <textarea id="result" name="result" rows="5" readonly></textarea>
+            <div class="brief__actions">
+              <button class="btn btn--small" type="button" data-copy-target="#result">Скопировать</button>
+              <a class="btn btn--small btn--ghost" href="mailto:mamont861@yandex.ru" data-mailto>Открыть email</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer container">
+      <div class="footer__left">
+        <div class="logo logo--small">
+          <span class="logo__mark">A</span>
+          <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
+        </div>
+        <p class="muted">© <span data-year></span> • Full Stack Web / CMS / PWA разработчик</p>
+        <p class="muted footer__legal">
+          ИП Мамонтов Александр Геннадьевич • ИНН 772791557695 • ОГРНИП 325774600533820
+        </p>
+      </div>
+      <div class="footer__right">
+        <a class="link" href="index.html">Главная</a>
+        <a class="link" href="oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+        <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </footer>
+  </main>
+
+  <div class="floating-actions" aria-label="Быстрые контакты">
+    <a class="fab fab--telegram" href="https://t.me/mamont861" target="_blank" rel="noopener" aria-label="Написать в Telegram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <a class="fab fab--whatsapp" href="https://wa.me/79267834919" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 11.5a8.5 8.5 0 1 1-16.5 5.2L3 21l4-1.4A8.5 8.5 0 1 1 21 11.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M8.5 10.5c.4 2.3 2.2 4.1 4.5 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+        <path d="M13.5 15c.8-.2 1.6-.6 2.2-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <a class="fab fab--max" href="https://max.ru/u/f9LHodD0cOIFAKS7X9CZz9I0nlarjeqX8mJEiZmDGm6aEaEq2S-WLDkgWZs" target="_blank" rel="noopener" aria-label="Написать в MAX">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4.6c-4.6 0-8.4 3-8.4 6.8 0 2.1 1.2 4 3.1 5.2-.1 1-.6 2.2-1.3 3.1-.2.3.1.7.5.6 1.8-.4 3.1-1.1 4-1.7.7.1 1.4.2 2.1.2 4.6 0 8.4-3 8.4-6.8S16.6 4.6 12 4.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="12" cy="11.3" r="1.6" fill="currentColor"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden data-toast>
+    <span data-toast-text>Скопировано</span>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

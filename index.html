@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#f8fafc" />
+  <meta name="theme-color" content="#05060a" />
   <title>Александр Мамонтов — Full Stack Web / CMS / PWA разработчик</title>
   <meta name="description" content="Разработка сайтов, CMS, PWA, Flutter/Dart, API-интеграций и Telegram-ботов. SEO-продвижение и Яндекс Директ. Кейсы: 2HEARTS, EPA-Sklad, РосСпирт, РОП-продаж, Ozon5min, Лицей Интеллект." />
   <meta property="og:title" content="Александр Мамонтов — Full Stack Web / CMS / PWA разработчик" />
@@ -13,6 +13,82 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preload" as="image" href="assets/avatar.png" />
   <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ===== Matrix TV — fullscreen home ===== */
+    .tv-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:14px;padding:20px;}
+    .tv-hero::before{content:"";position:absolute;inset:0;
+      background:radial-gradient(50% 55% at 50% 42%, rgba(74,255,150,.16), transparent 62%),
+                 radial-gradient(46% 52% at 70% 40%, rgba(124,92,255,.16), transparent 60%);
+      z-index:0;pointer-events:none;}
+    .tv{position:relative;z-index:1;width:min(1120px,92vw,138vh);aspect-ratio:16/9;border-radius:24px;
+      padding:16px;background:linear-gradient(160deg,#191b22,#0a0b10 60%);
+      box-shadow:0 40px 90px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.06) inset,0 -10px 30px rgba(0,0,0,.5) inset;
+      border:1px solid rgba(255,255,255,.06);}
+    .tv::after{content:"";position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);
+      width:8px;height:8px;border-radius:50%;background:#48f58a;box-shadow:0 0 12px #48f58a;opacity:.9;}
+    .tv__screen{position:absolute;inset:16px;border-radius:12px;overflow:hidden;background:#02030a;
+      box-shadow:0 0 0 2px rgba(0,0,0,.6),0 0 60px rgba(72,245,138,.12) inset;}
+    .tv__canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .tv__scan{position:absolute;inset:0;pointer-events:none;z-index:2;
+      background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.16) 2px 3px),
+                 radial-gradient(120% 120% at 50% 50%, transparent 62%, rgba(0,0,0,.55) 100%);
+      mix-blend-mode:multiply;}
+    .tv__glare{position:absolute;inset:0;pointer-events:none;z-index:3;
+      background:linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 26%);}
+
+    /* slide-down in-screen menu */
+    .tv__menu{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;gap:6px;flex-wrap:wrap;
+      justify-content:center;padding:10px 12px;
+      background:linear-gradient(180deg, rgba(6,20,12,.86), rgba(6,20,12,.35));
+      border-bottom:1px solid rgba(72,245,138,.35);backdrop-filter:blur(4px);
+      transform:translateY(-110%);transition:transform .7s cubic-bezier(.2,.9,.25,1);}
+    .tv__menu.is-on{transform:translateY(0);}
+    .tv__menu a{font:600 13px/1 ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+      color:#c9ffe0;text-decoration:none;letter-spacing:.4px;padding:7px 10px;border-radius:8px;
+      border:1px solid transparent;text-shadow:0 0 8px rgba(72,245,138,.45);transition:.15s;white-space:nowrap;}
+    .tv__menu a:hover{background:rgba(72,245,138,.14);border-color:rgba(72,245,138,.5);color:#eafff2;}
+    .tv__menu a.tv__contact{background:rgba(72,245,138,.9);color:#04140b;text-shadow:none;}
+    .tv__menu a.tv__contact:hover{background:#8dffbf;}
+
+    /* caption fades in over the reveal */
+    .tv__caption{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:16px 20px 18px;
+      display:flex;flex-direction:column;gap:10px;
+      background:linear-gradient(0deg, rgba(2,8,5,.82), transparent);
+      opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease;}
+    .tv__caption.is-on{opacity:1;transform:translateY(0);}
+    .tv__name{margin:0;font:800 clamp(24px,4.4vw,40px)/1 ui-monospace,Menlo,Consolas,monospace;
+      color:#eafff2;letter-spacing:1px;text-shadow:0 0 14px rgba(72,245,138,.55);}
+    .tv__role{margin:0;font:600 clamp(12px,1.8vw,15px)/1.2 ui-monospace,Menlo,Consolas,monospace;
+      color:#7ff0ad;letter-spacing:1px;}
+    .tv__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px;}
+    .tv__cta .btn{font-size:14px;}
+    .tv__cta .btn--ghost{color:#daffe9;border-color:rgba(150,255,190,.55);background:rgba(6,20,12,.4);}
+    .tv__cta .btn--ghost:hover{background:rgba(72,245,138,.16);border-color:rgba(150,255,190,.85);color:#eafff2;}
+
+    .tv__hint{z-index:1;margin:0;color:#8a93a8;font-size:13px;letter-spacing:.3px;text-align:center;}
+    .tv__skip{background:none;border:1px solid rgba(255,255,255,.2);color:#aeb6c9;
+      border-radius:999px;padding:5px 12px;font-size:12px;cursor:pointer;margin-left:8px;}
+    .tv__skip:hover{border-color:rgba(255,255,255,.4);color:#fff;}
+
+    @media (max-width:560px){
+      .tv-hero{padding:16px 12px;}
+      .tv{padding:9px;border-radius:16px;width:min(96vw,64vh);aspect-ratio:4/5;}
+      .tv__screen{inset:9px;border-radius:10px;}
+      .tv__menu{gap:2px;padding:7px 8px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+        scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);}
+      .tv__menu::-webkit-scrollbar{display:none;}
+      .tv__menu a{font-size:11px;padding:5px 8px;flex:0 0 auto;}
+      .tv__caption{padding:12px 12px 14px;gap:8px;}
+      .tv__name{font-size:26px;}
+      .tv__role{font-size:11px;}
+      .tv__cta .btn{font-size:13px;padding:9px 14px;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .tv__menu,.tv__caption{transition:none;}
+    }
+  </style>
 </head>
 <body>
   <div class="fx" aria-hidden="true">
@@ -20,780 +96,42 @@
     <div class="fx__glow"></div>
   </div>
 
-  <header class="header">
-    <nav class="nav container" aria-label="Главная навигация">
-      <a class="logo" href="#top" aria-label="На главную">
-        <span class="logo__mark">A</span>
-        <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
-      </a>
-
-      <button class="nav__toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-nav-toggle>
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="nav__links" data-nav-links>
-        <a href="#projects">Кейсы</a>
-        <a href="#stack">Стек</a>
-        <a href="#services">Услуги</a>
-        <a href="#process">Процесс</a>
-        <a href="certificates.html">Сертификаты</a>
-        <a href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">Резюме</a>
-        <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
-        <a class="nav__cta" href="#contact">Связаться</a>
-      </div>
-    </nav>
-  </header>
-
   <main id="top">
-    <section class="hero container">
-      <div class="hero__left">
-        <p class="eyebrow">
-          <span class="pill">Full Stack Web</span>
-          <span class="pill">CMS / контент</span>
-          <span class="pill">PWA / Flutter / Dart</span>
-          <span class="pill">PHP / API / боты</span>
-          <span class="pill">SEO / Яндекс Директ</span>
-        </p>
+    <section class="tv-hero" aria-label="Матрица — вход">
+      <div class="tv">
+        <div class="tv__screen">
+          <canvas class="tv__canvas" data-tvcanvas></canvas>
 
-        <h1 class="h1">
-          Разрабатываю сайты, CMS‑проекты, PWA и интеграции
-          <span class="accent">под реальный запуск</span>.
-        </h1>
+          <nav class="tv__menu" data-tvmenu aria-label="Меню">
+            <a href="cases.html">Кейсы</a>
+            <a href="stack.html">Стек</a>
+            <a href="prices.html">Цены</a>
+            <a href="certificates.html">Сертификаты</a>
+            <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
+            <a href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">Резюме</a>
+            <a class="tv__contact" href="contact.html">Связаться</a>
+          </nav>
 
-        <p class="lead">
-          Делаю web‑проекты целиком: интерфейс, CMS, API, Telegram‑боты, PWA на Flutter/Dart, SEO‑продвижение, Яндекс Директ и деплой.
-          В портфолио — 2HEARTS, SEO‑кейсы EPA‑Sklad, РосСпирт и РОП‑продаж, Ozon5min Bot, Sharvkube.ru, сайт лицея «Интеллект» и другие коммерческие проекты.
-        </p>
-
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#contact">Обсудить задачу</a>
-          <a class="btn btn--ghost" href="#projects">Смотреть кейсы</a>
-          <a class="btn btn--text" href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">
-            Резюме PDF
-          </a>
-        </div>
-
-        <div class="hero__chips">
-          <div class="chip">
-            <div class="chip__title">Фокус</div>
-            <div class="chip__value">Web, CMS, PWA, API</div>
+          <div class="tv__caption" data-tvcap>
+            <p class="tv__name">Александр</p>
+            <p class="tv__role">Full&nbsp;Stack&nbsp;Web · CMS · PWA · Боты · SEO</p>
+            <div class="tv__cta">
+              <a class="btn btn--primary" href="contact.html">Обсудить задачу</a>
+              <a class="btn btn--ghost" href="cases.html">Смотреть кейсы</a>
+              <a class="btn btn--ghost" href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
+            </div>
           </div>
-          <div class="chip">
-            <div class="chip__title">Стек</div>
-            <div class="chip__value">JS/TS, React, PHP, Flutter/Dart</div>
-          </div>
-          <div class="chip">
-            <div class="chip__title">Результат</div>
-            <div class="chip__value">Сайт, приложение, бот или интеграция</div>
-          </div>
+
+          <div class="tv__scan" aria-hidden="true"></div>
+          <div class="tv__glare" aria-hidden="true"></div>
         </div>
       </div>
 
-      <aside class="hero__right" aria-label="Карточка профиля">
-        <div class="card card--profile">
-          <div class="avatar-wrap">
-            <img class="avatar" src="assets/avatar.png" srcset="assets/avatar@2x.png 2x" alt="Фото разработчика" />
-            <span class="ring" aria-hidden="true"></span>
-          </div>
-
-          <div class="profile">
-            <div class="profile__name">Александр</div>
-            <div class="profile__role">Full Stack Web / CMS / PWA</div>
-
-            <div class="profile__status">
-              <span class="dot dot--ok" aria-hidden="true"></span>
-              <span>Открыт к web‑проектам и поддержке</span>
-            </div>
-
-            <div class="profile__links">
-              <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">GitHub</a>
-              <button class="link link--btn" type="button" data-copy="mamont861@yandex.ru">Скопировать email</button>
-              <button class="link link--btn" type="button" data-copy="@mamont861">Скопировать Telegram</button>
-            </div>
-
-            <div class="profile__note">
-              <p class="muted">Собираю проекты от структуры и UI до интеграций, публикации и сопровождения.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="card card--mini">
-          <div class="mini">
-            <div class="mini__title">Быстрый старт</div>
-            <ol class="mini__list">
-              <li>Короткий бриф → уточняем задачу</li>
-              <li>Оценка → фиксируем сроки/стоимость</li>
-              <li>Релиз → передача исходников и инструкции</li>
-            </ol>
-          </div>
-        </div>
-      </aside>
+      <p class="tv__hint">Разработка под реальный запуск: сайты, CMS, PWA, боты, SEO
+        <button class="tv__skip" type="button" data-tvskip>Пропустить →</button>
+      </p>
     </section>
-
-    <section class="stats container" aria-label="Коротко обо мне">
-      <div class="stat">
-        <div class="stat__num">8+</div>
-        <div class="stat__label">коммерческих кейсов: сайты, CMS, PWA, боты, SEO</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">2HEARTS</div>
-        <div class="stat__label">Flutter/Dart PWA + backend‑сервисы</div>
-      </div>
-      <div class="stat">
-        <div class="stat__num">CMS/API</div>
-        <div class="stat__label">контентные сайты, формы, боты, деплой</div>
-      </div>
-    </section>
-
-    <section id="stack" class="section container">
-      <header class="section__head">
-        <h2 class="h2">Стек и зоны ответственности</h2>
-        <p class="section__desc">
-          Подбираю стек под задачу: от статического сайта и CMS до PWA, backend‑сервиса, Telegram‑бота и инфраструктуры для запуска.
-        </p>
-      </header>
-
-      <div class="grid grid--stack">
-        <article class="card card--stack" data-reveal>
-          <h3 class="h3">Frontend</h3>
-          <p class="muted">Интерфейсы, адаптив, SPA, сборка</p>
-          <div class="tags">
-            <span class="tag">HTML5</span>
-            <span class="tag">CSS3</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">React</span>
-            <span class="tag">Vite</span>
-            <span class="tag">Webpack</span>
-          </div>
-        </article>
-
-        <article class="card card--stack" data-reveal>
-          <h3 class="h3">Backend / API</h3>
-          <p class="muted">Серверная логика, интеграции, webhooks</p>
-          <div class="tags">
-            <span class="tag">PHP</span>
-            <span class="tag">REST API</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">Python</span>
-            <span class="tag">Telegram Bot API</span>
-            <span class="tag">Supabase</span>
-          </div>
-        </article>
-
-        <article class="card card--stack" data-reveal>
-          <h3 class="h3">CMS / контент</h3>
-          <p class="muted">Корпоративные сайты, структура, поддержка</p>
-          <div class="tags">
-            <span class="tag">WordPress</span>
-            <span class="tag">WooCommerce</span>
-            <span class="tag">Tilda</span>
-            <span class="tag">1С‑Битрикс</span>
-            <span class="tag">OpenCart</span>
-            <span class="tag">OpenSquare</span>
-            <span class="tag">Nubex</span>
-            <span class="tag">формы</span>
-            <span class="tag">SEO‑база</span>
-          </div>
-        </article>
-
-        <article class="card card--stack" data-reveal>
-          <h3 class="h3">PWA / Mobile</h3>
-          <p class="muted">Flutter Web, installable app, push</p>
-          <div class="tags">
-            <span class="tag">Flutter</span>
-            <span class="tag">Dart</span>
-            <span class="tag">PWA</span>
-            <span class="tag">WASM</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Provider</span>
-            <span class="tag">go_router</span>
-          </div>
-        </article>
-
-        <article class="card card--stack" data-reveal>
-          <h3 class="h3">Инфраструктура</h3>
-          <p class="muted">Публикация, домены, хостинг, автодеплой</p>
-          <div class="tags">
-            <span class="tag">Nginx</span>
-            <span class="tag">Docker</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">GitHub Pages</span>
-            <span class="tag">Vercel</span>
-            <span class="tag">TimeWeb</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="section container">
-      <header class="section__head">
-        <h2 class="h2">Работы и использованный стек</h2>
-        <p class="section__desc">
-          Основные кейсы: коммерческие сайты, CMS, PWA‑приложение, Telegram‑боты и выбранные демо‑проекты.
-          В каждой работе указан стек, который использовался в задаче.
-        </p>
-      </header>
-
-      <div class="grid grid--projects">
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">2HEARTS</h3>
-            <p class="muted">Сайт знакомств • PWA‑приложение • SEO + Яндекс Директ</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Flutter</span>
-            <span class="tag">Dart</span>
-            <span class="tag">PWA</span>
-            <span class="tag">WASM</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Nginx</span>
-            <span class="tag">SEO</span>
-            <span class="tag">Яндекс Директ</span>
-          </div>
-
-          <p class="project__desc">
-            Web/PWA‑приложение для знакомств: адаптивный интерфейс, профили, мэтчинг, чат, медиа, push‑уведомления,
-            Supabase‑backend, рекомендации через API и возможность установки как приложения.
-            SEO‑продвижение: 50+ посадочных страниц, Schema.org, sitemap, пререндер — рост страниц в индексе Яндекса с 2 до 100+.
-            Реклама в Яндекс Директе с оптимизацией по целям Метрики.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://2-hearts.ru" target="_blank" rel="noopener">Открыть 2-hearts.ru</a>
-          </div>
-        </article>
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Ozon5min Bot</h3>
-            <p class="muted">Telegram‑бот • прикладная автоматизация</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">PHP</span>
-            <span class="tag">Telegram Bot API</span>
-            <span class="tag">webhook</span>
-            <span class="tag">automation</span>
-            <span class="tag">UX‑сценарии</span>
-          </div>
-
-          <p class="project__desc">
-            Бот под пользовательский сценарий: серверная логика, обработка команд, понятный поток действий и готовность к расширению под внутренние процессы.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://t.me/ozon5min_bot" target="_blank" rel="noopener">Открыть бота</a>
-          </div>
-        </article>
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Sharvkube.ru</h3>
-            <p class="muted">Корпоративный сайт • PHP‑обработчики • SEO</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">PHP</span>
-            <span class="tag">Telegram</span>
-            <span class="tag">GitHub Actions</span>
-            <span class="tag">TimeWeb</span>
-            <span class="tag">SEO</span>
-          </div>
-
-          <p class="project__desc">
-            Сайт услуг с многостраничной структурой, документами, формами, Telegram‑уведомлениями, базовой аналитикой, автодеплоем и SEO‑подготовкой.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://sharvkube.ru" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Лицей «Интеллект»</h3>
-            <p class="muted">Сайт образовательной организации • CMS Nubex</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Nubex</span>
-            <span class="tag">CMS</span>
-            <span class="tag">HTML/CSS</span>
-            <span class="tag">jQuery</span>
-            <span class="tag">контент</span>
-            <span class="tag">доступность</span>
-            <span class="tag">SEO</span>
-          </div>
-
-          <p class="project__desc">
-            Контентный сайт школы: структура разделов, новости, фото, документы, контакты, версия для слабовидящих и поддержка обязательных страниц образовательной организации.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://intellect-balashikha.ru" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">EPA‑Sklad.ru</h3>
-            <p class="muted">Интернет‑магазин • SEO‑аудит и оптимизация</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">SEO</span>
-            <span class="tag">WordPress</span>
-            <span class="tag">WooCommerce</span>
-            <span class="tag">семантика</span>
-            <span class="tag">SEO‑тексты</span>
-            <span class="tag">техаудит</span>
-          </div>
-
-          <p class="project__desc">
-            Полный SEO‑аудит интернет‑магазина: техническая часть (индексация, скорость, мета‑теги, пагинация),
-            семантика по категориям, SEO‑тексты для 12 категорий, план внедрения и готовый код для вставки.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://epa-sklad.ru" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project card--project-featured" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">РосСпирт</h3>
-            <p class="muted">B2B‑сайт производителя • SEO‑продвижение</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">SEO</span>
-            <span class="tag">B2B</span>
-            <span class="tag">семантика</span>
-            <span class="tag">мета‑теги</span>
-            <span class="tag">контент</span>
-          </div>
-
-          <p class="project__desc">
-            SEO для B2B‑сайта производителя этилового спирта (работа только с юрлицами):
-            структура под коммерческие запросы, мета‑теги, контент по ассортименту и географии поставок.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://rosspirt.site" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">РОП‑продаж.рф</h3>
-            <p class="muted">Лендинг услуг РОП • SEO‑продвижение</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">SEO</span>
-            <span class="tag">Tilda</span>
-            <span class="tag">семантика</span>
-            <span class="tag">мета‑теги</span>
-            <span class="tag">Метрика</span>
-          </div>
-
-          <p class="project__desc">
-            SEO для лендинга услуг руководителя отдела продаж на Tilda: коммерческая семантика,
-            структура блоков под запросы, мета‑теги и цели Яндекс Метрики.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://роп-продаж.рф" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">TwoHearts Support Bot</h3>
-            <p class="muted">Telegram‑бот поддержки • тикеты и апелляции</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">PHP</span>
-            <span class="tag">Telegram Bot API</span>
-            <span class="tag">webhook</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">поддержка</span>
-          </div>
-
-          <p class="project__desc">
-            Бот поддержки сервиса 2HEARTS: обращения пользователей, диалог с оператором, передача фото,
-            апелляции по блокировкам и интеграция с базой сервиса.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://t.me/TwoHeartsChatBot" target="_blank" rel="noopener">Открыть бота</a>
-          </div>
-        </article>
-
-        <article class="card card--project" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Instruktor.by</h3>
-            <p class="muted">Сайт услуг автоинструктора • тарифы • SEO</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">контент</span>
-            <span class="tag">SEO</span>
-          </div>
-
-          <p class="project__desc">
-            Сайт частного автоинструктора (Минск): тарифы по автомобилям и форматам занятий, блок отзывов,
-            разделы услуг и обучающих материалов, формы обратного звонка и SEO‑база.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://instruktor.by/" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Grand Tours</h3>
-            <p class="muted">Корпоративный сайт • OpenSquare • B2B</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">OpenSquare</span>
-            <span class="tag">CMS</span>
-            <span class="tag">B2B</span>
-            <span class="tag">EN</span>
-            <span class="tag">контент</span>
-          </div>
-
-          <p class="project__desc">
-            Англоязычный сайт travel‑компании: структура услуг и направлений, контент для B2B‑партнёров, форма связи и аккуратный контентный UI.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://www.grandtoursdmc.com/" target="_blank" rel="noopener">Открыть сайт</a>
-          </div>
-        </article>
-
-        <article class="card card--project" data-reveal>
-          <div class="project__top">
-            <h3 class="h3">Booking Tickets</h3>
-            <p class="muted">TypeScript‑демо • интерфейс бронирования</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">TypeScript</span>
-            <span class="tag">CSS</span>
-            <span class="tag">Vite</span>
-            <span class="tag">UI</span>
-          </div>
-
-          <p class="project__desc">
-            Проект с упором на структуру, пользовательский поток, компонентный подход и аккуратный UI.
-          </p>
-
-          <div class="project__links">
-            <a class="btn btn--small" href="https://aleksandr861.github.io/FE_diploma/" target="_blank" rel="noopener">Демо</a>
-            <a class="btn btn--small btn--ghost" href="https://github.com/Aleksandr861/FE_diploma" target="_blank" rel="noopener">Код</a>
-          </div>
-        </article>
-
-      </div>
-
-      <div class="section__foot">
-        <a class="btn btn--ghost" href="https://github.com/Aleksandr861?tab=repositories" target="_blank" rel="noopener">
-          Смотреть все репозитории →
-        </a>
-      </div>
-    </section>
-
-    <section id="services" class="section container">
-      <header class="section__head">
-        <h2 class="h2">Что могу взять в работу</h2>
-        <p class="section__desc">
-          Формат — фриланс, проектная разработка и поддержка. Могу собрать проект с нуля, доработать текущий сайт или закрыть отдельную интеграцию.
-        </p>
-      </header>
-
-      <div class="grid grid--services">
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">Сайт / CMS</h3>
-          <p class="muted">Корпоративные сайты, школы, услуги, контент</p>
-          <ul class="list">
-            <li>Структура страниц, навигация, контентные блоки</li>
-            <li>CMS: WordPress / WooCommerce, Tilda, 1С‑Битрикс, OpenCart, OpenSquare, Nubex</li>
-            <li>Формы, карты, контакты, документы</li>
-            <li>SEO‑минимум, мета‑теги, скорость</li>
-          </ul>
-        </article>
-
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">PWA / Flutter Web</h3>
-          <p class="muted">Приложение, которое работает в браузере и ставится на устройство</p>
-          <ul class="list">
-            <li>Flutter/Dart интерфейсы</li>
-            <li>PWA‑manifest, service worker, install flow</li>
-            <li>Интеграция с Supabase/Firebase/API</li>
-            <li>Адаптация под desktop и mobile</li>
-          </ul>
-        </article>
-
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">API / Telegram‑боты</h3>
-          <p class="muted">Автоматизация и серверные сценарии</p>
-          <ul class="list">
-            <li>PHP‑webhooks и REST‑интеграции</li>
-            <li>Telegram Bot API, команды, сценарии</li>
-            <li>FastAPI‑сервисы под отдельные задачи</li>
-            <li>Логи, health check, деплой</li>
-          </ul>
-        </article>
-
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">SPA / интерфейсы</h3>
-          <p class="muted">React, TypeScript, формы, CRUD</p>
-          <ul class="list">
-            <li>React‑экраны и компоненты</li>
-            <li>CRUD, таблицы, фильтры, состояния</li>
-            <li>Работа с REST API</li>
-            <li>Сборка: Vite/Webpack</li>
-          </ul>
-        </article>
-
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">Поддержка / доработки</h3>
-          <p class="muted">Быстро разобраться и довести до релиза</p>
-          <ul class="list">
-            <li>Правки верстки, багфиксы, обновления</li>
-            <li>CMS‑контент, новые страницы, формы</li>
-            <li>Оптимизация скорости и UX</li>
-            <li>Документация и инструкции</li>
-          </ul>
-        </article>
-
-        <article class="card card--service" data-reveal>
-          <h3 class="h3">SEO / Яндекс Директ</h3>
-          <p class="muted">Продвижение и реклама с опорой на аналитику</p>
-          <ul class="list">
-            <li>SEO‑аудит и внедрение: семантика, посадочные, тексты</li>
-            <li>Мета‑теги, структура, sitemap/robots, Schema.org</li>
-            <li>Яндекс Директ: настройка и ведение кампаний</li>
-            <li>Метрика: цели, события, оптимизация по конверсиям</li>
-          </ul>
-        </article>
-
-      </div>
-    
-
-      <div class="section__foot">
-        <a class="btn btn--ghost" href="prices.html">Смотреть прайс →</a>
-      </div>
-</section>
-
-    <section id="process" class="section container">
-      <header class="section__head">
-        <h2 class="h2">Как я работаю</h2>
-        <p class="section__desc">
-          Чтобы у вас не было сюрпризов по срокам и стоимости, работаю по простому процессу.
-        </p>
-      </header>
-
-      <div class="grid grid--process">
-        <div class="card card--step" data-reveal>
-          <div class="step__num">01</div>
-          <div class="step__title">Бриф</div>
-          <p class="muted">Разбираем задачу, цель, ограничения, референсы.</p>
-        </div>
-        <div class="card card--step" data-reveal>
-          <div class="step__num">02</div>
-          <div class="step__title">Оценка</div>
-          <p class="muted">Фиксирую объём работ, сроки и стоимость. Без «потом добавим ещё».</p>
-        </div>
-        <div class="card card--step" data-reveal>
-          <div class="step__num">03</div>
-          <div class="step__title">Разработка</div>
-          <p class="muted">По этапам: интерфейс → CMS/API/PWA → тесты → полировка.</p>
-        </div>
-        <div class="card card--step" data-reveal>
-          <div class="step__num">04</div>
-          <div class="step__title">Тест и релиз</div>
-          <p class="muted">Проверка, правки, деплой. Передаю исходники и инструкцию.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section container">
-      <header class="section__head">
-        <h2 class="h2">FAQ</h2>
-        <p class="section__desc">Коротко отвечаю на то, что обычно спрашивают в разовых заказах.</p>
-      </header>
-
-      <div class="grid grid--faq">
-        <details class="card card--faq" data-reveal>
-          <summary>Можно без ТЗ?</summary>
-          <p class="muted">Да. Помогу сформулировать требования через вопросы и примеры. После — фиксируем список работ письменно.</p>
-        </details>
-
-        <details class="card card--faq" data-reveal>
-          <summary>Сколько правок входит?</summary>
-          <p class="muted">Зависит от задачи. Обычно 1–2 итерации правок после сдачи этапа — в пределах согласованного объёма.</p>
-        </details>
-
-        <details class="card card--faq" data-reveal>
-          <summary>Что по оплате?</summary>
-          <p class="muted">Варианты: фикс за задачу / почасово / по этапам. Для разовых заказов чаще всего удобен фикс.</p>
-        </details>
-
-        <details class="card card--faq" data-reveal>
-          <summary>Можно сделать только отдельную интеграцию?</summary>
-          <p class="muted">Да. Например: Telegram‑бот, webhook, форма, API‑метод, CRM‑связка или доработка CMS.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact" class="section container">
-      <header class="section__head">
-        <h2 class="h2">Связаться и быстро описать задачу</h2>
-        <p class="section__desc">
-          Ниже — мини‑бриф. Заполните 3–4 поля, нажмите «Сформировать сообщение» и отправьте мне в Telegram или на email.
-        </p>
-      </header>
-
-      <div class="grid grid--contact">
-        <div class="card card--contact" data-reveal>
-          <h3 class="h3">Контакты</h3>
-
-          <div class="contact__rows">
-            <div class="contact__row">
-              <span class="muted">Email</span>
-              <a class="link" href="mailto:mamont861@yandex.ru">mamont861@yandex.ru</a>
-            </div>
-            <div class="contact__row">
-              <span class="muted">Telegram</span>
-              <a class="link" href="https://t.me/mamont861" target="_blank" rel="noopener">@mamont861</a>
-            </div>
-            <div class="contact__row">
-              <span class="muted">WhatsApp</span>
-              <a class="link" href="https://wa.me/79267834919" target="_blank" rel="noopener">+7&nbsp;926&nbsp;783‑49‑19</a>
-            </div>
-            <div class="contact__row">
-              <span class="muted">GitHub</span>
-              <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">github.com/Aleksandr861</a>
-            </div>
-          </div>
-
-
-          <div class="divider"></div>
-
-          <!-- Profi.ru widget start -->
-          <div class="profi-widget" data-id="4f45b77bb21a78e8087af4005706b823" data-type="210x190">
-            Powered by <a href="https://profi.ru/profile/MamontovAG4">Profi.ru</a>
-          </div>
-          <script src="https://profi.ru/jqs/widget/widget.js"></script>
-          <!-- Profi.ru widget end -->
-
-          <div class="divider"></div>
-
-          <p class="muted">
-            Если нужно — сделаю <b>быстрый прототип</b> или «первый экран»,
-            чтобы вы увидели стиль и темп работы.
-          </p>
-        </div>
-
-        <form class="card card--brief" data-reveal data-brief-form>
-          <div class="field">
-            <label for="type">Тип задачи</label>
-            <select id="type" name="type">
-              <option>Лендинг</option>
-              <option>Сайт компании</option>
-              <option>CMS / контентный сайт</option>
-              <option>PWA / Flutter Web</option>
-              <option>Telegram‑бот</option>
-              <option>SEO‑продвижение</option>
-              <option>SEO‑аудит</option>
-              <option>SPA / React</option>
-              <option>API / интеграции</option>
-              <option>Flutter / Dart</option>
-              <option>Правки / багфикс</option>
-              <option>Другое</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="goal">Цель</label>
-            <input id="goal" name="goal" placeholder="Напр.: собрать лендинг и подключить форму" />
-          </div>
-
-          <div class="field">
-            <label for="deadline">Срок</label>
-            <input id="deadline" name="deadline" placeholder="Напр.: до 10 января / 3–5 дней" />
-          </div>
-
-          <div class="field">
-            <label for="budget">Бюджет (если есть)</label>
-            <input id="budget" name="budget" placeholder="Напр.: 15 000 ₽ / обсуждается" />
-          </div>
-
-          <div class="field">
-            <label for="links">Ссылки / референсы</label>
-            <input id="links" name="links" placeholder="Figma, сайт‑пример, репозиторий..." />
-          </div>
-
-          <div class="field">
-            <label for="comment">Комментарий</label>
-            <textarea id="comment" name="comment" rows="3" placeholder="Любые детали: CMS, контент, интеграции..."></textarea>
-          </div>
-
-          <div class="brief__actions">
-            <button class="btn btn--primary" type="button" data-brief-build>Сформировать сообщение</button>
-            <button class="btn btn--ghost" type="reset">Очистить</button>
-          </div>
-
-          <div class="field">
-            <label for="result">Текст для отправки</label>
-            <textarea id="result" name="result" rows="5" readonly></textarea>
-            <div class="brief__actions">
-              <button class="btn btn--small" type="button" data-copy-target="#result">Скопировать</button>
-              <a class="btn btn--small btn--ghost" href="mailto:mamont861@yandex.ru" data-mailto>Открыть email</a>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <footer class="footer container">
-      <div class="footer__left">
-        <div class="logo logo--small">
-          <span class="logo__mark">A</span>
-          <span class="logo__text">Aleksandr<span class="logo__dot">.</span></span>
-        </div>
-        <p class="muted">© <span data-year></span> • Full Stack Web / CMS / PWA разработчик</p>
-        <p class="muted footer__legal">
-          ИП Мамонтов Александр Геннадьевич • ИНН 772791557695 • ОГРНИП 325774600533820
-        </p>
-      </div>
-
-      <div class="footer__right">
-        <a class="link" href="#top">Наверх ↑</a>
-        <a class="link" href="oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
-        <a class="link" href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">PDF</a>
-        <a class="link" href="https://github.com/Aleksandr861" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </footer>
   </main>
-
 
   <div class="floating-actions" aria-label="Быстрые контакты">
     <a class="fab fab--telegram" href="https://t.me/mamont861" target="_blank" rel="noopener" aria-label="Написать в Telegram">
@@ -809,12 +147,159 @@
         <path d="M13.5 15c.8-.2 1.6-.6 2.2-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
     </a>
+    <a class="fab fab--max" href="https://max.ru/u/f9LHodD0cOIFAKS7X9CZz9I0nlarjeqX8mJEiZmDGm6aEaEq2S-WLDkgWZs" target="_blank" rel="noopener" aria-label="Написать в MAX">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 4.6c-4.6 0-8.4 3-8.4 6.8 0 2.1 1.2 4 3.1 5.2-.1 1-.6 2.2-1.3 3.1-.2.3.1.7.5.6 1.8-.4 3.1-1.1 4-1.7.7.1 1.4.2 2.1.2 4.6 0 8.4-3 8.4-6.8S16.6 4.6 12 4.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="12" cy="11.3" r="1.6" fill="currentColor"/>
+      </svg>
+    </a>
   </div>
 
-  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden data-toast>
-    <span data-toast-text>Скопировано</span>
-  </div>
+  <script>
+  /* ===== Matrix TV: rain -> portrait reveal -> menu/caption ===== */
+  (function(){
+    var section = document.querySelector('.tv-hero');
+    if(!section) return;
+    var canvas = section.querySelector('[data-tvcanvas]');
+    var menu   = section.querySelector('[data-tvmenu]');
+    var cap    = section.querySelector('[data-tvcap]');
+    var skip   = section.querySelector('[data-tvskip]');
+    var ctx = canvas.getContext('2d', {alpha:false});
+    var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  <script src="js/main.js"></script>
+    var glyphs = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリギジヂビピウゥクスツヌフムユュルレロヲゴゾドボポ0123456789<>=*+:.#$%&Z@ｦｱｲｳｴｵ'.split('');
+    var CW = 0, CH = 0, dpr = 1, fs = 16, cols = 0;
+    var drops = [];
+    var img = new Image(), imgReady = false, portrait = null;
+    img.onload = function(){ imgReady = true; buildPortrait(); };
+    img.src = 'assets/avatar.png';
+
+    function size(){
+      var r = canvas.getBoundingClientRect();
+      CW = Math.max(1, r.width); CH = Math.max(1, r.height);
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      canvas.width = Math.round(CW*dpr); canvas.height = Math.round(CH*dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+      fs = CW < 560 ? 12 : (CW < 800 ? 14 : 16);
+      cols = Math.ceil(CW/fs);
+      drops = new Array(cols);
+      for(var i=0;i<cols;i++) drops[i] = Math.random()*(CH/fs);
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillStyle = '#02030a'; ctx.fillRect(0,0,CW,CH);
+      if(imgReady) buildPortrait();
+    }
+
+    // pre-render the photo as a green duotone with darkened background + vignette
+    function buildPortrait(){
+      if(!CW || !CH) return;
+      var W = Math.round(CW), H = Math.round(CH);
+      var po = document.createElement('canvas'); po.width = W; po.height = H;
+      var p = po.getContext('2d');
+      var ir = img.width/img.height, gr = W/H, sx=0, sy=0, sw=img.width, sh=img.height;
+      if(ir > gr){ sw = img.height*gr; sx = (img.width - sw)/2; }
+      else { sh = img.width/gr; sy = (img.height - sh)/2; }
+      p.drawImage(img, sx, sy, sw, sh, 0, 0, W, H);
+      var im = p.getImageData(0,0,W,H), d = im.data;
+      var cx = W/2, cy = H*0.5, maxr = Math.hypot(cx,cy);
+      for(var i=0,px=0;i<d.length;i+=4,px++){
+        var x = px%W, y = (px/W)|0;
+        var L = (0.299*d[i]+0.587*d[i+1]+0.114*d[i+2])/255;
+        var bgd = L>0.78 ? (1-(L-0.78)/0.22*0.92) : 1;   // fade out bright background
+        var vr = Math.hypot(x-cx,y-cy)/maxr;
+        var vig = 1 - Math.pow(Math.max(0,vr-0.32)/0.68,1.5)*0.95;
+        var f = bgd*vig;
+        d[i]   = Math.min(255, L*70*f);
+        d[i+1] = Math.min(255, (55 + L*205)*f);
+        d[i+2] = Math.min(255, L*115*f);
+      }
+      p.putImageData(im,0,0);
+      portrait = po;
+    }
+
+    var start = 0, last = 0;
+    var T_REV0 = 3600, T_REV1 = 5200, T_MENU = 4200, T_CAP = 5000;
+    function revealAt(t){ return Math.max(0, Math.min(1, (t - T_REV0)/(T_REV1 - T_REV0))); }
+    function easeOut(x){ return 1 - Math.pow(1-x, 3); }
+
+    function frame(now){
+      if(!start){ start = now; last = now; }
+      var t = now - start;
+      if(now - last < 32){ raf = requestAnimationFrame(frame); return; } // ~30fps
+      last = now;
+
+      ctx.fillStyle = 'rgba(2,3,10,0.16)';
+      ctx.fillRect(0,0,CW,CH);
+      ctx.font = fs+'px ui-monospace, Menlo, Consolas, monospace';
+
+      var reveal = easeOut(revealAt(t));
+      var headA = 1 - 0.8*reveal;
+
+      // matrix rain (fades as the photo comes in)
+      if(headA > 0.02){
+        for(var i=0;i<cols;i++){
+          var y = drops[i]*fs;
+          ctx.fillStyle = 'rgba(200,255,220,'+(0.85*headA)+')';
+          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], i*fs, y);
+          ctx.fillStyle = 'rgba(40,220,120,'+(0.45*headA)+')';
+          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], i*fs, y-fs);
+          if(y > CH && Math.random() > 0.975) drops[i] = 0; else drops[i]++;
+        }
+      }
+
+      // the photo materialises out of the code
+      if(reveal > 0 && portrait){
+        ctx.globalAlpha = reveal;
+        ctx.drawImage(portrait, 0, 0, CW, CH);
+        ctx.globalAlpha = 1;
+      }
+
+      // code keeps dripping over the photo
+      if(reveal > 0.15){
+        for(var k=0;k<cols;k++){
+          if(Math.random() > 0.35) continue;
+          var yy = drops[k]*fs;
+          ctx.fillStyle = 'rgba(150,255,190,'+(0.10 + Math.random()*0.18)+')';
+          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], k*fs, yy);
+          if(yy > CH && Math.random() > 0.97) drops[k] = 0; else drops[k]++;
+        }
+      }
+
+      if(t > T_MENU) menu.classList.add('is-on');
+      if(t > T_CAP)  cap.classList.add('is-on');
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    function finishNow(){
+      start = performance.now() - (T_REV1 + 300);
+      menu.classList.add('is-on'); cap.classList.add('is-on');
+    }
+
+    var raf = 0, running = false;
+    function play(){ if(running) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
+    function stop(){ running = false; if(raf) cancelAnimationFrame(raf); raf = 0; }
+
+    size();
+    if(reduce){
+      var draw = function(){ ctx.fillStyle='#02030a'; ctx.fillRect(0,0,CW,CH); if(portrait) ctx.drawImage(portrait,0,0,CW,CH); menu.classList.add('is-on'); cap.classList.add('is-on'); };
+      if(imgReady) draw(); else img.addEventListener('load', function(){ buildPortrait(); draw(); });
+    } else {
+      play();
+    }
+
+    if(skip) skip.addEventListener('click', function(){ if(!reduce) finishNow(); });
+
+    var rt;
+    window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ var s = start; size(); start = s; if(reduce && portrait){ ctx.fillStyle='#02030a'; ctx.fillRect(0,0,CW,CH); ctx.drawImage(portrait,0,0,CW,CH); } }, 180); });
+
+    // pause when off-screen / tab hidden (saves battery; real visible tab runs normally)
+    if('IntersectionObserver' in window && !reduce){
+      new IntersectionObserver(function(e){
+        if(e[0].isIntersecting && !document.hidden) play(); else stop();
+      }, {threshold:0.03}).observe(section);
+    }
+    document.addEventListener('visibilitychange', function(){ if(reduce) return; if(document.hidden) stop(); else play(); });
+  })();
+  </script>
 </body>
 </html>

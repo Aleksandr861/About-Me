@@ -620,6 +620,9 @@ input:focus, textarea:focus, select:focus{
 }
 .fab--telegram{ color: #229ED9; }
 .fab--whatsapp{ color: #16a34a; }
+.fab--max{ color:#fff; background:linear-gradient(150deg,#8b5cf6 0%,#5b74ef 55%,#3b82f6 100%); border-color:transparent; }
+.fab--max:hover{ color:#fff; background:linear-gradient(150deg,#9d72ff 0%,#6a84ff 55%,#4f8dff 100%); border-color:transparent; }
+.fab--max svg{ width:24px; height:24px; }
 
 
 /* Certificates lightbox */
