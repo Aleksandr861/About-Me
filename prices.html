@@ -91,14 +91,33 @@
     }
     .pcard__price .from{font-size:14px;opacity:.9;margin-right:6px;font-weight:700;}
     .pcard__price .per{font-size:15px;opacity:.9;font-weight:700;}
+    .pcard__sub{margin-top:4px;font-size:13px;font-weight:700;color:#fff;opacity:.92;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.2);}
 
     /* accent palette */
     .p-land{--c1:#8a6bff;--c2:#6a3ff0;--c3:#4a25b0;}
     .p-seo {--c1:#3ee081;--c2:#22b866;--c3:#128046;}
-    .p-dir {--c1:#ffb64a;--c2:#f5951b;--c3:#c26a06;}
+    .p-dir {--c1:#ffe24a;--c2:#f7c400;--c3:#c99500;}
     .p-bot {--c1:#3fd3f0;--c2:#1eaecf;--c3:#0d7a94;}
     .p-app {--c1:#ff7ab6;--c2:#f5468f;--c3:#c01d63;}
-    .p-care{--c1:#c3e34f;--c2:#a2c62f;--c3:#6f8c12;}
+    .p-care{--c1:#ffb64a;--c2:#f5951b;--c3:#c26a06;}
+
+    .pcard--wolf{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:center;
+      gap:22px;text-align:left;padding:20px 30px;--c1:#aab1c4;--c2:#6d7488;--c3:#464d60;
+      box-shadow:
+        inset 0 8px 14px rgba(255,255,255,.55),
+        inset 0 -16px 22px rgba(0,0,0,.26),
+        0 16px 0 var(--c3),
+        0 30px 40px rgba(0,0,0,.45);}
+    .pcard--wolf:hover{transform:translateY(-9px) scale(1.015);
+      box-shadow:inset 0 8px 14px rgba(255,255,255,.6),inset 0 -16px 22px rgba(0,0,0,.26),0 22px 0 var(--c3),0 40px 48px rgba(0,0,0,.5);}
+    .pcard--wolf .pcard__ico{width:122px;height:122px;flex:0 0 auto;}
+    .pcard--wolf .wolftxt{display:flex;flex-direction:column;gap:6px;}
+    .pcard--wolf .wolftitle{font-size:clamp(20px,3.6vw,30px);font-weight:800;line-height:1.12;text-shadow:0 2px 0 rgba(0,0,0,.22);}
+    .pcard--wolf .wolfsub{font-size:14px;font-weight:700;opacity:.92;}
+    .pcard--wolf .wolfarrow{margin-left:auto;font-size:34px;font-weight:800;line-height:1;
+      opacity:.95;text-shadow:0 2px 0 rgba(0,0,0,.25);transition:transform .18s;}
+    .pcard--wolf:hover .wolfarrow{transform:translateX(5px);}
+    @media(max-width:520px){ .pcard--wolf{flex-direction:column;text-align:center;gap:10px;} .pcard--wolf .wolfarrow{margin:0;} }
 
     .pfoot{text-align:center;margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:14px;}
     .pbtn{
@@ -199,24 +218,33 @@
         <!-- SEO · крокодил -->
         <a class="pcard p-seo" href="contact.html">
           <div class="pcard__ico">
-            <svg viewBox="0 0 120 120"><g filter="url(#stkr)"><g transform="translate(60 60) scale(.66)">
-              <path d="M52 40 q40 6 58 34 q-8 8 -20 6 q-16 -18 -40 -22z" fill="#4f9c43"/>
-              <ellipse cx="-22" cy="82" rx="20" ry="12" fill="#4f9c43"/><ellipse cx="24" cy="82" rx="20" ry="12" fill="#4f9c43"/>
-              <ellipse cx="0" cy="26" rx="58" ry="60" fill="#5aa84b"/>
-              <ellipse cx="-52" cy="20" rx="16" ry="24" fill="#4f9c43"/><ellipse cx="52" cy="20" rx="16" ry="24" fill="#4f9c43"/>
-              <ellipse cx="0" cy="40" rx="34" ry="38" fill="#d9edb0"/>
-              <path d="M-46 -40 q22 -22 44 -6 q22 -16 44 6 q-8 18 -22 12 q-22 -14 -44 0 q-14 6 -22 -12z" fill="#5aa84b"/>
-              <circle cx="-22" cy="-30" r="24" fill="#fff"/><circle cx="22" cy="-30" r="24" fill="#fff"/>
-              <circle cx="-18" cy="-26" r="11" fill="#26311f"/><circle cx="26" cy="-26" r="11" fill="#26311f"/>
-              <circle cx="-14" cy="-30" r="4" fill="#fff"/><circle cx="30" cy="-30" r="4" fill="#fff"/>
-              <ellipse cx="0" cy="4" rx="26" ry="18" fill="#63b053"/><circle cx="-9" cy="-2" r="3" fill="#3f7d35"/><circle cx="9" cy="-2" r="3" fill="#3f7d35"/>
-              <path d="M-20 14 q20 16 40 0" fill="none" stroke="#3f7d35" stroke-width="4" stroke-linecap="round"/>
-              <path d="M-12 15 l4 8 4 -8z" fill="#fff"/><path d="M4 15 l4 8 4 -8z" fill="#fff"/>
-              <ellipse cx="-34" cy="6" rx="9" ry="6" fill="#e79aa6" opacity=".8"/><ellipse cx="34" cy="6" rx="9" ry="6" fill="#e79aa6" opacity=".8"/>
+            <svg viewBox="0 0 120 120"><g filter="url(#stkr)"><g transform="translate(60 60) scale(.62)">
+              <!-- tail -->
+              <path d="M44 2 q40 0 56 -22 q7 -9 -3 -13 q-6 9 -21 13 q-17 5 -33 12z" fill="#4f9c43"/>
+              <!-- legs -->
+              <ellipse cx="34" cy="26" rx="10" ry="8" fill="#57a349"/><ellipse cx="-6" cy="28" rx="10" ry="8" fill="#57a349"/>
+              <ellipse cx="26" cy="30" rx="11" ry="9" fill="#4c9a42"/><ellipse cx="-14" cy="32" rx="11" ry="9" fill="#4c9a42"/>
+              <!-- body -->
+              <ellipse cx="2" cy="4" rx="50" ry="26" fill="#5aa84b"/>
+              <ellipse cx="4" cy="14" rx="38" ry="13" fill="#dbeeb2"/>
+              <!-- snout -->
+              <path d="M-34 -6 q-38 -6 -58 4 q-2 4 1 7 l57 3z" fill="#5aa84b"/>
+              <path d="M-34 9 q-36 4 -55 1 q-1 5 3 7 q26 4 54 -2z" fill="#63b053"/>
+              <path d="M-74 6 l3.5 6 3.5 -6z M-65 6.5 l3.5 6 3.5 -6z M-56 6 l3.5 6 3.5 -6z M-47 5 l3.5 6 3.5 -6z" fill="#fff"/>
+              <circle cx="-84" cy="-1" r="2.4" fill="#3f7d35"/><circle cx="-84" cy="5" r="2.4" fill="#3f7d35"/>
+              <!-- eyes on top -->
+              <circle cx="-24" cy="-22" r="13" fill="#5aa84b"/><circle cx="-2" cy="-23" r="13" fill="#5aa84b"/>
+              <circle cx="-24" cy="-24" r="8.5" fill="#fff"/><circle cx="-2" cy="-25" r="8.5" fill="#fff"/>
+              <circle cx="-21" cy="-22" r="4.2" fill="#26311f"/><circle cx="1" cy="-23" r="4.2" fill="#26311f"/>
+              <circle cx="-19" cy="-25" r="1.6" fill="#fff"/><circle cx="3" cy="-26" r="1.6" fill="#fff"/>
+              <!-- back scales -->
+              <path d="M14 -22 l6 -10 6 10z M30 -16 l5 -9 5 9z M44 -6 l5 -8 5 8z" fill="#4c9a42"/>
+              <ellipse cx="-40" cy="5" rx="7" ry="5" fill="#e79aa6" opacity=".7"/>
             </g></g></svg>
           </div>
           <div class="pcard__name">SEO-продвижение</div>
-          <div class="pcard__price"><span class="from">от</span>15&nbsp;000&nbsp;₽<span class="per">/мес</span></div>
+          <div class="pcard__price"><span class="from">от</span>15&nbsp;000&nbsp;₽</div>
+          <div class="pcard__sub">сопровождение от 10&nbsp;000&nbsp;₽</div>
         </a>
 
         <!-- Директ · утёнок -->
@@ -238,6 +266,7 @@
           </div>
           <div class="pcard__name">Яндекс&nbsp;Директ</div>
           <div class="pcard__price"><span class="from">от</span>15&nbsp;000&nbsp;₽</div>
+          <div class="pcard__sub">сопровождение от 10&nbsp;000&nbsp;₽</div>
         </a>
 
         <!-- Боты · жаба -->
@@ -265,25 +294,38 @@
         <a class="pcard p-app" href="contact.html">
           <div class="pcard__ico">
             <svg viewBox="0 0 120 120"><g filter="url(#stkr)"><g transform="translate(60 60) scale(.66)">
-              <path d="M22 72 q22 26 16 52 q-12 2 -18 -8 q0 -22 -16 -34z" fill="#e35d2f"/>
-              <ellipse cx="0" cy="30" rx="44" ry="48" fill="#2f7fe0"/>
-              <ellipse cx="4" cy="42" rx="24" ry="30" fill="#ffd24a"/>
-              <path d="M-26 6 q-20 22 -6 52 q14 4 20 -8 q-8 -24 -8 -44z" fill="#28a06a"/>
-              <circle cx="-2" cy="-26" r="33" fill="#2f7fe0"/>
-              <path d="M-2 -58 q6 -16 18 -12 q-4 10 -10 16z" fill="#ffd24a"/>
-              <ellipse cx="-12" cy="-18" rx="17" ry="16" fill="#fff2cf"/>
-              <path d="M-26 -20 q-26 -4 -26 16 q12 6 18 -4 q-2 -12 12 -8z" fill="#3c414c"/>
-              <path d="M-40 -4 q-6 7 4 10 q9 -1 10 -9z" fill="#f0a83c"/>
-              <circle cx="-8" cy="-30" r="8" fill="#fff"/><circle cx="-9" cy="-29" r="4.5" fill="#22262e"/><circle cx="-7" cy="-31" r="1.6" fill="#fff"/>
-              <ellipse cx="-20" cy="-8" rx="7" ry="5" fill="#ff9db0" opacity=".8"/>
-              <g stroke="#e0932f" stroke-width="4" stroke-linecap="round"><path d="M-8 80 v10"/><path d="M-8 80 l-7 9"/><path d="M-8 80 l7 9"/></g>
+              <!-- tail -->
+              <path d="M18 70 q22 24 16 50 q-12 2 -18 -8 q0 -22 -16 -34z" fill="#e7eaf2"/>
+              <!-- body -->
+              <ellipse cx="0" cy="30" rx="44" ry="48" fill="#f5f7fc"/>
+              <!-- wing -->
+              <path d="M-26 6 q-20 22 -6 52 q14 4 20 -8 q-8 -24 -8 -44z" fill="#e2e6f0"/>
+              <!-- belly -->
+              <ellipse cx="4" cy="44" rx="24" ry="28" fill="#ffffff"/>
+              <!-- head -->
+              <circle cx="-2" cy="-26" r="33" fill="#f5f7fc"/>
+              <!-- yellow crest -->
+              <path d="M-6 -50 q-8 -20 -1 -32 q7 12 8 26z" fill="#ffdb5c"/>
+              <path d="M-1 -54 q-3 -24 8 -32 q1 14 -1 28z" fill="#ffd23f"/>
+              <path d="M4 -52 q4 -22 15 -26 q-3 15 -9 27z" fill="#ffca2e"/>
+              <!-- face patch -->
+              <ellipse cx="-10" cy="-20" rx="16" ry="15" fill="#ffffff"/>
+              <!-- yellow cheek -->
+              <ellipse cx="-16" cy="-14" rx="6.5" ry="5" fill="#ffe08a"/>
+              <!-- eye -->
+              <circle cx="-8" cy="-28" r="7.5" fill="#fff"/><circle cx="-9" cy="-27" r="4.4" fill="#22262e"/><circle cx="-7" cy="-30" r="1.6" fill="#fff"/>
+              <!-- dark hooked beak -->
+              <path d="M-24 -18 q-25 -3 -25 16 q11 6 18 -4 q-2 -12 12 -8z" fill="#484d57"/>
+              <path d="M-41 -3 q-6 7 4 10 q9 -1 10 -9z" fill="#5c626d"/>
+              <!-- feet -->
+              <g stroke="#c9761f" stroke-width="4" stroke-linecap="round"><path d="M-8 80 v10"/><path d="M-8 80 l-7 9"/><path d="M-8 80 l7 9"/></g>
             </g></g></svg>
           </div>
           <div class="pcard__name">Приложение</div>
           <div class="pcard__price"><span class="from">от</span>20&nbsp;000&nbsp;₽</div>
         </a>
 
-        <!-- Сопровождение SEO · заяц -->
+        <!-- Доработки / корректировки · заяц -->
         <a class="pcard p-care" href="contact.html">
           <div class="pcard__ico">
             <svg viewBox="0 0 120 120"><g filter="url(#stkr)"><g transform="translate(60 60) scale(.66)">
@@ -304,8 +346,44 @@
               <ellipse cx="-30" cy="2" rx="9" ry="6" fill="#f2acbb" opacity=".85"/><ellipse cx="30" cy="2" rx="9" ry="6" fill="#f2acbb" opacity=".85"/>
             </g></g></svg>
           </div>
-          <div class="pcard__name">Сопровождение&nbsp;SEO</div>
-          <div class="pcard__price"><span class="from">от</span>15&nbsp;000&nbsp;₽<span class="per">/мес</span></div>
+          <div class="pcard__name">Доработки / корректировки</div>
+          <div class="pcard__price"><span class="from">от</span>5&nbsp;000&nbsp;₽</div>
+        </a>
+
+        <!-- Волк «ты заходи, если что» -->
+        <a class="pcard pcard--wolf" href="contact.html">
+          <div class="pcard__ico">
+            <svg viewBox="0 0 120 120"><g filter="url(#stkr)"><g transform="translate(60 60) scale(.62)">
+              <path d="M-56 -24 L-40 -76 L-12 -42 Z" fill="#767c8e"/>
+              <path d="M56 -24 L40 -76 L12 -42 Z" fill="#767c8e"/>
+              <path d="M-48 -32 L-38 -64 L-20 -44 Z" fill="#565c6d"/>
+              <path d="M48 -32 L38 -64 L20 -44 Z" fill="#565c6d"/>
+              <ellipse cx="-26" cy="82" rx="20" ry="12" fill="#767c8e"/>
+              <ellipse cx="26" cy="82" rx="20" ry="12" fill="#767c8e"/>
+              <ellipse cx="0" cy="32" rx="56" ry="54" fill="#8b91a2"/>
+              <ellipse cx="-54" cy="34" rx="14" ry="22" fill="#767c8e"/>
+              <ellipse cx="54" cy="34" rx="14" ry="22" fill="#767c8e"/>
+              <ellipse cx="0" cy="46" rx="34" ry="34" fill="#d9dde8"/>
+              <ellipse cx="0" cy="-18" rx="48" ry="40" fill="#8b91a2"/>
+              <circle cx="-38" cy="-8" r="14" fill="#8b91a2"/>
+              <circle cx="38" cy="-8" r="14" fill="#8b91a2"/>
+              <ellipse cx="0" cy="2" rx="30" ry="24" fill="#cfd4e0"/>
+              <path d="M-28 -20 q12 6 24 0" fill="none" stroke="#3a3f4c" stroke-width="4" stroke-linecap="round"/>
+              <path d="M4 -20 q12 6 24 0" fill="none" stroke="#3a3f4c" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="-16" cy="-13" r="4.5" fill="#2a2a2a"/>
+              <circle cx="16" cy="-13" r="4.5" fill="#2a2a2a"/>
+              <path d="M-30 -28 q10 -4 22 -1" fill="none" stroke="#565c6d" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M8 -29 q12 -3 22 1" fill="none" stroke="#565c6d" stroke-width="3.5" stroke-linecap="round"/>
+              <ellipse cx="0" cy="2" rx="10" ry="8" fill="#2a2a2a"/>
+              <ellipse cx="-3" cy="0" rx="3" ry="2" fill="#5f6473"/>
+              <path d="M0 10 q-14 10 -22 3 M0 10 q14 10 22 3" fill="none" stroke="#565c6d" stroke-width="3.5" stroke-linecap="round"/>
+            </g></g></svg>
+          </div>
+          <div class="wolftxt">
+            <div class="wolftitle">Любой каприз — договоримся!</div>
+            <div class="wolfsub">…ну ты заходи, если что</div>
+          </div>
+          <span class="wolfarrow" aria-hidden="true">→</span>
         </a>
       </div>
 
@@ -351,8 +429,7 @@
     </a>
     <a class="fab fab--max" href="https://max.ru/u/f9LHodD0cOIFAKS7X9CZz9I0nlarjeqX8mJEiZmDGm6aEaEq2S-WLDkgWZs" target="_blank" rel="noopener" aria-label="Написать в MAX">
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 4.6c-4.6 0-8.4 3-8.4 6.8 0 2.1 1.2 4 3.1 5.2-.1 1-.6 2.2-1.3 3.1-.2.3.1.7.5.6 1.8-.4 3.1-1.1 4-1.7.7.1 1.4.2 2.1.2 4.6 0 8.4-3 8.4-6.8S16.6 4.6 12 4.6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        <circle cx="12" cy="11.3" r="1.6" fill="currentColor"/>
+        <text x="12" y="15.4" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="800" font-size="8.5" letter-spacing=".3" fill="currentColor">MAX</text>
       </svg>
     </a>
   </div>
