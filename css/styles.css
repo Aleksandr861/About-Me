@@ -412,27 +412,102 @@ code{
 .project__desc{ margin:0; color: var(--muted); }
 .project__links{ margin-top:auto; display:flex; gap: 10px; flex-wrap:wrap; }
 
-.grid--certs{ grid-template-columns: repeat(3, 1fr); }
-.card--cert{ padding: 14px; display:flex; flex-direction:column; gap: 12px; }
+/* Сетка: все ячейки одного компактного размера (превью) */
+.grid--certs{ grid-template-columns: repeat(3, 1fr); grid-auto-rows: 244px; gap: 16px; }
+
+/* Ячейка держит место в сетке; карточка внутри раскрывается поверх, не сдвигая соседей */
+.cert-cell{ position: relative; }
+
+.card--cert{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  min-height: 100%;
+  max-height: 244px;
+  overflow: hidden;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: max-height .35s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+/* Слот изображения — превью, одинаковый во всех карточках */
 .cert__img{
-  display:block;
+  position: relative;
+  display: block;
+  height: 148px;
   border-radius: 12px;
-  overflow:hidden;
+  overflow: hidden;
   border: 1px solid var(--line);
   background: #fff;
   cursor: zoom-in;
+  flex: none;
+  transition: height .35s ease;
 }
 .cert__img img{
-  display:block;
-  width:100%;
-  aspect-ratio: 4 / 3;
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  transition: transform .25s ease;
+  background: #fff;
 }
-.card--cert:hover .cert__img img{ transform: scale(1.02); }
-.cert__body{ display:grid; gap: 6px; }
+/* Нетология: два документа в одном слоте, рядом */
+.cert__imgs{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  height: 148px;
+  flex: none;
+  transition: height .35s ease;
+}
+.cert__imgs .cert__img{ height: 100%; }
+
+/* Тело: в превью виден заголовок, детали появляются при наведении */
+.cert__body{ display: grid; gap: 6px; align-content: start; }
 .cert__body .muted,
 .cert__body .small{ margin: 0; }
+.cert__body .muted,
+.cert__body .small,
+.cert__body .btn,
+.cert__body .link{
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+/* Наведение: карточка раскрывается — виден весь текст и сертификат крупнее */
+.card--cert:hover{
+  max-height: 660px;
+  z-index: 30;
+  border-color: rgba(124,45,146,.55);
+  box-shadow: 0 26px 60px rgba(2,6,23,.32);
+}
+.card--cert:hover .cert__img,
+.card--cert:hover .cert__imgs{ height: 300px; }
+.card--cert:hover .cert__body .muted,
+.card--cert:hover .cert__body .small,
+.card--cert:hover .cert__body .btn,
+.card--cert:hover .cert__body .link{
+  opacity: 1;
+  transform: none;
+}
+
+/* Тач-устройства: без наведения — показываем карточки целиком */
+@media (hover: none){
+  .grid--certs{ grid-auto-rows: auto; }
+  .cert-cell{ position: static; }
+  .card--cert{ position: static; max-height: none; overflow: visible; }
+  .card--cert .cert__img,
+  .card--cert .cert__imgs{ height: 200px; }
+  .cert__body .muted,
+  .cert__body .small,
+  .cert__body .btn,
+  .cert__body .link{ opacity: 1; transform: none; }
+}
 
 .card--service{ padding: 18px; }
 .card--service .muted{ margin: 0 0 10px; }
