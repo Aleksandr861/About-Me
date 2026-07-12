@@ -73,13 +73,11 @@
     .tv__skip:hover{border-color:rgba(255,255,255,.4);color:#fff;}
 
     @media (max-width:560px){
-      .tv-hero{padding:16px 12px;}
+      .tv-hero{padding:16px 12px;justify-content:flex-start;padding-top:5vh;}
       .tv{padding:9px;border-radius:16px;width:min(96vw,64vh);aspect-ratio:4/5;}
       .tv__screen{inset:9px;border-radius:10px;}
-      .tv__menu{gap:2px;padding:7px 8px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
-        scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12px,#000 calc(100% - 12px),transparent);}
-      .tv__menu::-webkit-scrollbar{display:none;}
-      .tv__menu a{font-size:11px;padding:5px 8px;flex:0 0 auto;}
+      .tv__menu{gap:4px 5px;padding:7px 8px;flex-wrap:wrap;justify-content:center;overflow:visible;}
+      .tv__menu a{font-size:11px;padding:5px 9px;}
       .tv__caption{padding:12px 12px 14px;gap:8px;}
       .tv__name{font-size:26px;}
       .tv__role{font-size:11px;}
