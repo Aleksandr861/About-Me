@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#05060a" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Александр Мамонтов — Full Stack Web / CMS / PWA разработчик</title>
   <meta name="description" content="Разработка сайтов, CMS, PWA, Flutter/Dart, API-интеграций и Telegram-ботов. SEO-продвижение и Яндекс Директ. Кейсы: 2HEARTS, EPA-Sklad, РосСпирт, РОП-продаж, Ozon5min, Лицей Интеллект." />
   <meta property="og:title" content="Александр Мамонтов — Full Stack Web / CMS / PWA разработчик" />
@@ -11,125 +11,357 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/avatar@2x.png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preload" as="image" href="assets/avatar.png" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preload" as="image" href="assets/avatar-bw.png" />
+  <link rel="preload" as="image" href="assets/avatar-eyes.png?v=2" />
 
   <style>
-    /* ===== Matrix TV — fullscreen home ===== */
-    .tv-hero{position:relative;min-height:100vh;display:flex;flex-direction:column;
-      align-items:center;justify-content:center;gap:14px;padding:20px;}
-    .tv-hero::before{content:"";position:absolute;inset:0;
-      background:radial-gradient(50% 55% at 50% 42%, rgba(74,255,150,.16), transparent 62%),
-                 radial-gradient(46% 52% at 70% 40%, rgba(124,92,255,.16), transparent 60%);
-      z-index:0;pointer-events:none;}
-    .tv{position:relative;z-index:1;width:min(1120px,92vw,138vh);aspect-ratio:16/9;border-radius:24px;
-      padding:16px;background:linear-gradient(160deg,#191b22,#0a0b10 60%);
-      box-shadow:0 40px 90px rgba(0,0,0,.6),0 2px 0 rgba(255,255,255,.06) inset,0 -10px 30px rgba(0,0,0,.5) inset;
-      border:1px solid rgba(255,255,255,.06);}
-    .tv::after{content:"";position:absolute;left:50%;bottom:-3px;transform:translateX(-50%);
-      width:8px;height:8px;border-radius:50%;background:#48f58a;box-shadow:0 0 12px #48f58a;opacity:.9;}
-    .tv__screen{position:absolute;inset:16px;border-radius:12px;overflow:hidden;background:#02030a;
-      box-shadow:0 0 0 2px rgba(0,0,0,.6),0 0 60px rgba(72,245,138,.12) inset;}
-    .tv__canvas{position:absolute;inset:0;width:100%;height:100%;display:block;}
-    .tv__scan{position:absolute;inset:0;pointer-events:none;z-index:2;
-      background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.16) 2px 3px),
-                 radial-gradient(120% 120% at 50% 50%, transparent 62%, rgba(0,0,0,.55) 100%);
-      mix-blend-mode:multiply;}
-    .tv__glare{position:absolute;inset:0;pointer-events:none;z-index:3;
-      background:linear-gradient(115deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 26%);}
+    /* =====================================================
+       Стартовая — «индиго-газета»: чернила #32127A на белом
+       Консервативная передовица + вау-детали (тикер, растровое фото)
+       Самодостаточные стили, css/styles.css не используется
+    ===================================================== */
+    :root{
+      --ink:#151515;              /* чернила — чёрные */
+      --ink-dark:#000000;
+      --ink-70:rgba(0,0,0,.72);
+      --ink-55:rgba(0,0,0,.55);
+      --rule:rgba(0,0,0,.42);     /* линейки */
+      --rule-soft:rgba(0,0,0,.14);
+      --paper:#ffffff;
+      /* единственный акцент */
+      --indigo:#32127A; --indigo-dark:#250b5e;
+      --eye:#f2b705;    /* глаза кота — реалистичное золото */
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      --container:1120px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:var(--serif);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    ::selection{ background:var(--indigo); color:#fff; }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; }
+    .container{ width:min(var(--container), calc(100% - 48px)); margin-inline:auto; }
 
-    /* slide-down in-screen menu */
-    .tv__menu{position:absolute;top:0;left:0;right:0;z-index:4;display:flex;gap:6px;flex-wrap:wrap;
-      justify-content:center;padding:10px 12px;
-      background:linear-gradient(180deg, rgba(6,20,12,.86), rgba(6,20,12,.35));
-      border-bottom:1px solid rgba(72,245,138,.35);backdrop-filter:blur(4px);
-      transform:translateY(-110%);transition:transform .7s cubic-bezier(.2,.9,.25,1);}
-    .tv__menu.is-on{transform:translateY(0);}
-    .tv__menu a{font:600 13px/1 ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-      color:#c9ffe0;text-decoration:none;letter-spacing:.4px;padding:7px 10px;border-radius:8px;
-      border:1px solid transparent;text-shadow:0 0 8px rgba(72,245,138,.45);transition:.15s;white-space:nowrap;}
-    .tv__menu a:hover{background:rgba(72,245,138,.14);border-color:rgba(72,245,138,.5);color:#eafff2;}
-    .tv__menu a.tv__contact{background:rgba(72,245,138,.9);color:#04140b;text-shadow:none;}
-    .tv__menu a.tv__contact:hover{background:#8dffbf;}
+    /* появление «оттиском» */
+    @keyframes stamp{ from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:none; } }
+    .stamp{ animation:stamp .55s ease both; }
+    .stamp--1{ animation-delay:.05s; } .stamp--2{ animation-delay:.15s; }
+    .stamp--3{ animation-delay:.25s; } .stamp--4{ animation-delay:.35s; }
+    .stamp--5{ animation-delay:.45s; }
 
-    /* caption fades in over the reveal */
-    .tv__caption{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:16px 20px 18px;
-      display:flex;flex-direction:column;gap:10px;
-      background:linear-gradient(0deg, rgba(2,8,5,.82), transparent);
-      opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .8s ease;}
-    .tv__caption.is-on{opacity:1;transform:translateY(0);}
-    .tv__name{margin:0;font:800 clamp(24px,4.4vw,40px)/1 ui-monospace,Menlo,Consolas,monospace;
-      color:#eafff2;letter-spacing:1px;text-shadow:0 0 14px rgba(72,245,138,.55);}
-    .tv__role{margin:0;font:600 clamp(12px,1.8vw,15px)/1.2 ui-monospace,Menlo,Consolas,monospace;
-      color:#7ff0ad;letter-spacing:1px;}
-    .tv__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px;}
-    .tv__cta .btn{font-size:14px;}
-    .tv__cta .btn--ghost{color:#daffe9;border-color:rgba(150,255,190,.55);background:rgba(6,20,12,.4);}
-    .tv__cta .btn--ghost:hover{background:rgba(72,245,138,.16);border-color:rgba(150,255,190,.85);color:#eafff2;}
+    /* ---------- Шапка-масthead ---------- */
+    .mast{ border-bottom:3px double var(--rule); }
+    .mast__top{
+      display:flex; justify-content:space-between; gap:14px; align-items:baseline;
+      padding:14px 0 12px; border-bottom:1px solid var(--rule-soft);
+      font:italic .86rem/1.3 var(--serif); color:var(--ink-55);
+    }
+    .mast__top b{ font-style:normal; font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:.8rem; color:var(--ink); }
+    .mast__nav{
+      display:flex; flex-wrap:wrap; justify-content:center; gap:0;
+      border-top:1px solid var(--rule-soft); padding:8px 0;
+    }
+    .mast__nav a{
+      padding:7px 16px;
+      font:600 .8rem/1 var(--sans); letter-spacing:.14em; text-transform:uppercase;
+      color:var(--ink); transition:background .15s ease, color .15s ease;
+    }
+    .mast__nav a:hover{ background:var(--ink); color:#fff; }
+    .mast__nav a.nav-indigo{ background:var(--indigo); color:#fff; }
+    .mast__nav a.nav-indigo:hover{ background:var(--indigo-dark); color:#fff; }
 
-    .tv__hint{z-index:1;margin:0;color:#8a93a8;font-size:13px;letter-spacing:.3px;text-align:center;}
-    .tv__skip{background:none;border:1px solid rgba(255,255,255,.2);color:#aeb6c9;
-      border-radius:999px;padding:5px 12px;font-size:12px;cursor:pointer;margin-left:8px;}
-    .tv__skip:hover{border-color:rgba(255,255,255,.4);color:#fff;}
+    /* ---------- Передовица ---------- */
+    .front{ display:grid; grid-template-columns:1.55fr 1fr; gap:0 44px; padding-top:34px; }
+    .front__head{ grid-column:1/-1; }
+    .kicker{
+      margin:0 0 10px; display:flex; align-items:center; gap:14px;
+      font:700 .78rem/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; color:var(--ink-70);
+    }
+    .kicker::after{ content:""; flex:1; height:1px; background:var(--rule-soft); }
+    .headline{
+      margin:0 0 14px;
+      font:400 clamp(2.1rem, 4.8vw, 3.7rem)/1.08 var(--serif);
+      letter-spacing:-.01em; color:var(--ink);
+    }
+    .headline::first-letter{ color:var(--indigo); }
+    .deck{
+      margin:0 0 26px; max-width:64ch;
+      font:italic 1.18rem/1.5 var(--serif); color:var(--ink-70);
+    }
 
-    @media (max-width:560px){
-      .tv-hero{padding:16px 12px;justify-content:flex-start;padding-top:5vh;}
-      .tv{padding:9px;border-radius:16px;width:min(96vw,64vh);aspect-ratio:4/5;}
-      .tv__screen{inset:9px;border-radius:10px;}
-      .tv__menu{gap:4px 5px;padding:7px 8px;flex-wrap:wrap;justify-content:center;overflow:visible;}
-      .tv__menu a{font-size:11px;padding:5px 9px;}
-      .tv__caption{padding:12px 12px 14px;gap:8px;}
-      .tv__name{font-size:26px;}
-      .tv__role{font-size:11px;}
-      .tv__cta .btn{font-size:13px;padding:9px 14px;}
+    .article{ border-top:1px solid var(--rule-soft); padding-top:22px; }
+    .article__cols{ columns:2; column-gap:36px; column-rule:1px solid var(--rule-soft); }
+    .article p{ margin:0 0 14px; font-size:1.02rem; color:var(--ink-70); text-align:justify; hyphens:auto; }
+    .article p:first-child::first-letter{
+      float:left; padding:6px 10px 2px 0;
+      font:400 3.6em/.78 var(--serif); color:var(--indigo);
+    }
+    .chronicle{ margin-top:24px; border-top:1px solid var(--rule-soft); padding-top:16px; }
+    .chronicle__head{
+      margin:0 0 6px; display:flex; align-items:center; gap:14px;
+      font:700 .74rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-55);
+    }
+    .chronicle__head::after{ content:""; flex:1; height:1px; background:var(--rule-soft); }
+    .chronicle ul{ list-style:none; margin:0; padding:0; }
+    .chronicle li{ padding:10px 0; border-bottom:1px dotted var(--rule); font-size:.98rem; color:var(--ink-70); }
+    .chronicle li:last-child{ border-bottom:0; }
+    .chronicle b{ color:var(--ink); }
+
+    .article__more{
+      display:inline-block; margin-top:18px;
+      font:600 .84rem/1 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--indigo);
+      border-bottom:1px solid var(--indigo);
+      padding-bottom:3px;
+    }
+    .article__more:hover{ color:var(--indigo-dark); border-color:var(--indigo-dark); }
+
+    /* фото с типографским растром */
+    .photo-col{ padding-top:22px; border-top:1px solid var(--rule-soft); }
+    .photo{ position:relative; margin:0; border:1px solid var(--rule); padding:8px; background:#fff; cursor:pointer; }
+    .photo__frame{ position:relative; overflow:hidden; }
+    .photo img{
+      display:block; width:100%; aspect-ratio:4/3.4; object-fit:cover; object-position:center 28%;
+    }
+    .photo__img--eyes{ position:absolute; inset:0; opacity:0; transition:opacity 1.4s ease; }
+    .photo:hover .photo__img--eyes, .photo.is-color .photo__img--eyes{ opacity:1; }
+    .photo__frame::before{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background:var(--ink); mix-blend-mode:screen;
+      transition:opacity .6s ease;
+    }
+    .photo__frame::after{
+      content:""; position:absolute; inset:0; pointer-events:none;
+      background-image:radial-gradient(circle, rgba(0,0,0,.5) 22%, transparent 30%);
+      background-size:3.5px 3.5px;
+      opacity:.5;
+    }
+    /* вау: при наведении глаза кота наливаются родным золотом —
+       второй кадр с настоящими цветными глазами, плавный кроссфейд */
+    .photo__caption{
+      margin:10px 4px 2px;
+      font:italic .88rem/1.4 var(--serif); color:var(--ink-55);
+    }
+
+    /* объявление-CTA */
+    .ad{
+      margin-top:26px; padding:20px 22px 22px;
+      border:1px solid var(--rule); outline:1px solid var(--rule); outline-offset:3px;
+      text-align:center;
+    }
+    .ad__label{
+      margin:0 0 10px;
+      font:700 .74rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--ink-55);
+    }
+    .ad__title{ margin:0 0 6px; font:400 1.5rem/1.2 var(--serif); }
+    .ad__text{ margin:0 0 16px; font:italic .96rem/1.45 var(--serif); color:var(--ink-70); }
+    .ad__btns{ display:flex; flex-direction:column; gap:10px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:13px 20px; border:1px solid var(--ink);
+      font:600 .84rem/1 var(--sans); letter-spacing:.14em; text-transform:uppercase;
+      cursor:pointer; transition:background .15s ease, color .15s ease;
+    }
+    .btn--solid{ background:var(--indigo); color:#fff; border-color:var(--indigo); }
+    .btn--solid:hover{ background:var(--indigo-dark); border-color:var(--indigo-dark); }
+    .btn--line{ background:#fff; color:var(--ink); }
+    .btn--line:hover{ background:rgba(0,0,0,.05); }
+
+    /* ---------- Сводка ---------- */
+    .digest{
+      margin-top:40px;
+      border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+      display:flex; flex-wrap:wrap; justify-content:center; gap:0 54px; padding:16px 0;
+    }
+    .digest__item{ display:flex; align-items:baseline; gap:10px; }
+    .digest__label{ font:700 .74rem/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--ink-55); }
+    .digest__num{ font:400 1.5rem/1 var(--serif); color:var(--ink); }
+    .digest__up{ color:var(--indigo); font-size:.8rem; }
+
+    /* ---------- Рубрики ---------- */
+    .rubrics{ padding-top:44px; }
+    .rubrics__head{
+      display:flex; align-items:center; gap:20px; margin-bottom:26px;
+      font:700 .8rem/1 var(--sans); letter-spacing:.2em; text-transform:uppercase; color:var(--ink);
+      justify-content:center;
+    }
+    .rubrics__head::before, .rubrics__head::after{ content:""; flex:1; height:1px; background:var(--rule-soft); }
+    .rubrics__grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:32px; }
+    .rubric h2{ margin:0 0 6px; font:400 1.22rem/1.25 var(--serif); color:var(--ink); }
+    .rubric h2::before{ content:""; display:block; width:30px; height:2px; background:var(--ink); margin-bottom:12px; }
+    .rubric p{ margin:0; font:italic .95rem/1.5 var(--serif); color:var(--ink-70); }
+
+    /* ---------- Подвал ---------- */
+    .foot{ margin-top:64px; border-top:3px double var(--rule); }
+    .foot__in{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px;
+      padding:18px 0 30px; font:italic .9rem/1.5 var(--serif); color:var(--ink-55);
+    }
+    .foot__links{ display:flex; gap:22px; }
+    .foot__links a{ font:600 .78rem/1 var(--sans); letter-spacing:.12em; text-transform:uppercase; color:var(--ink); font-style:normal; }
+    .foot__links a:hover{ border-bottom:1px solid var(--ink); }
+
+    /* ---------- Плавающие контакты ---------- */
+    .floating-actions{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .fab{
+      width:52px; height:52px; border-radius:999px; display:grid; place-items:center;
+      border:1px solid var(--rule); background:#fff;
+      box-shadow:0 10px 26px rgba(0,0,0,.16);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .fab:hover{ transform:translateY(-2px); }
+    .fab svg{ width:22px; height:22px; }
+    .fab--telegram{ color:#229ED9; }
+    .fab--whatsapp{ color:#16a34a; }
+    .fab--max{ color:#fff; background:var(--indigo); border-color:transparent; }
+    .fab--max:hover{ background:var(--indigo-dark); }
+    .fab--max svg{ width:24px; height:24px; }
+
+    /* ---------- Адаптив ---------- */
+    @media (max-width:960px){
+      .front{ grid-template-columns:1fr; }
+      .front__head{ order:-2; }
+      .photo-col{ order:-1; border-top:0; padding-top:0; margin-bottom:24px; }
+      .photo-col .photo{ max-width:440px; margin:0 auto; }
+      .photo-col .ad{ max-width:440px; margin-left:auto; margin-right:auto; }
+      .article__cols{ columns:2; }
+      .rubrics__grid{ grid-template-columns:repeat(2,1fr); }
+      .digest{ gap:0 34px; }
+    }
+    @media (max-width:640px){
+      .container{ width:calc(100% - 32px); }
+      .mast__top{ flex-wrap:wrap; gap:4px 14px; }
+      .mast__title{ letter-spacing:.05em; }
+      .article__cols{ columns:1; }
+      .article p{ text-align:left; }
+      .rubrics__grid{ grid-template-columns:1fr; gap:24px; }
+      .digest{ flex-direction:column; align-items:center; gap:10px; padding:14px 0; }
+      .foot__in{ flex-direction:column; align-items:flex-start; }
+      .ticker li{ font-size:.86rem; }
     }
     @media (prefers-reduced-motion:reduce){
-      .tv__menu,.tv__caption{transition:none;}
+      html{ scroll-behavior:auto; }
+      .stamp{ animation:none; }
+      .btn,.fab,.mast__nav a,.photo__img--eyes,.photo__frame::before,.photo__frame::after{ transition:none; }
     }
   </style>
 </head>
 <body>
-  <div class="fx" aria-hidden="true">
-    <div class="fx__grid"></div>
-    <div class="fx__glow"></div>
-  </div>
 
-  <main id="top">
-    <section class="tv-hero" aria-label="Матрица — вход">
-      <div class="tv">
-        <div class="tv__screen">
-          <canvas class="tv__canvas" data-tvcanvas></canvas>
+  <header class="mast container">
+    <div class="mast__top">
+      <span><b>Александр Мамонтов</b></span>
+      <span>Full Stack Developer — сайты, боты, SEO · Москва</span>
+      <span data-date>2026 год</span>
+    </div>
+    <nav class="mast__nav stamp stamp--1" aria-label="Меню">
+      <a href="cases.html">Кейсы</a>
+      <a href="stack.html">Стек</a>
+      <a href="prices.html">Цены</a>
+      <a href="certificates.html">Диплом</a>
+      <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
+      <a href="resume/Aleksandr-FullStack-Resume.pdf" download="Aleksandr-Mamontov-Resume.pdf">Резюме</a>
+      <a class="nav-indigo" href="contact.html">Связаться</a>
+    </nav>
+  </header>
 
-          <nav class="tv__menu" data-tvmenu aria-label="Меню">
-            <a href="cases.html">Кейсы</a>
-            <a href="stack.html">Стек</a>
-            <a href="prices.html">Цены</a>
-            <a href="certificates.html">Диплом</a>
-            <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
-            <a href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">Резюме</a>
-            <a class="tv__contact" href="contact.html">Связаться</a>
-          </nav>
-
-          <div class="tv__caption" data-tvcap>
-            <p class="tv__name">Александр</p>
-            <p class="tv__role">Full&nbsp;Stack&nbsp;Developer · CMS · PWA · Боты · SEO</p>
-            <div class="tv__cta">
-              <a class="btn btn--primary" href="contact.html">Обсудить задачу</a>
-              <a class="btn btn--ghost" href="cases.html">Смотреть кейсы</a>
-              <a class="btn btn--ghost" href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
-            </div>
-          </div>
-
-          <div class="tv__scan" aria-hidden="true"></div>
-          <div class="tv__glare" aria-hidden="true"></div>
-        </div>
+  <main>
+    <section class="front container">
+      <div class="front__head stamp stamp--4">
+        <p class="kicker">Разработка под реальный запуск</p>
+        <h1 class="headline">Сайты, которые приносят заявки</h1>
+        <p class="deck">Полный цикл: от структуры и текстов до запуска, аналитики и поддержки. Шесть лет практики и кейсы с измеримым результатом.</p>
       </div>
 
-      <p class="tv__hint">Разработка под реальный запуск: сайты, CMS, PWA, боты, SEO
-        <button class="tv__skip" type="button" data-tvskip>Пропустить →</button>
-      </p>
+      <article class="article stamp stamp--5">
+        <div class="article__cols">
+          <p>Лендинги, корпоративные сайты, интернет-магазины и PWA — под ключ. Сначала бриф и оценка, затем структура, разработка и запуск с проверкой форм и аналитики. Доработки существующих проектов на WordPress, Tilda и 1С-Битрикс: правки, ускорение, интеграции с CRM и оплатой.</p>
+          <p>Telegram-боты и API-интеграции автоматизируют заявки и продажи. SEO-продвижение выводит сайт в поиск: в кейсе EPA-Sklad индексация выросла с 2 до 100+ страниц. Яндекс Директ настраивается на заявки, а не на клики: цели Метрики, снижение цены обращения, прозрачные отчёты.</p>
+        </div>
+
+        <div class="chronicle">
+          <p class="chronicle__head">Хроника</p>
+          <ul>
+            <li><b>2HEARTS.</b> Запущены сайт знакомств и PWA-приложение.</li>
+            <li><b>EPA-Sklad.</b> SEO-аудит магазина: индексация выросла с 2 до 100+ страниц.</li>
+            <li><b>Лицей «Интеллект».</b> Сайт образовательной организации сдан в срок.</li>
+            <li><b>Ozon Карточки AI Bot.</b> Telegram-бот с ИИ оформляет карточки товаров.</li>
+          </ul>
+        </div>
+
+        <a class="article__more" href="cases.html">Читать кейсы номера →</a>
+      </article>
+
+      <aside class="photo-col stamp stamp--5">
+        <figure class="photo" data-photo>
+          <div class="photo__frame">
+            <img src="assets/avatar-bw.png" alt="Александр Мамонтов" />
+            <img class="photo__img--eyes" src="assets/avatar-eyes.png?v=2" alt="" aria-hidden="true" />
+          </div>
+          <figcaption class="photo__caption">Александр Мамонтов, Full Stack Developer. Фото: редакция.</figcaption>
+        </figure>
+
+        <div class="ad">
+          <p class="ad__label">Объявление</p>
+          <p class="ad__title">Принимаются заказы</p>
+          <p class="ad__text">Опишите задачу — получите оценку и срок. Ответ в течение часа.</p>
+          <div class="ad__btns">
+            <a class="btn btn--solid" href="contact.html">Обсудить задачу</a>
+            <a class="btn btn--line" href="resume/Aleksandr-FullStack-Resume.pdf" download="Aleksandr-Mamontov-Resume.pdf">Резюме (PDF)</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="digest container" aria-label="Сводка">
+      <div class="digest__item"><span class="digest__label">Опыт</span><span class="digest__num">6 лет</span><span class="digest__up">▲</span></div>
+      <div class="digest__item"><span class="digest__label">Кейсы</span><span class="digest__num">100+</span><span class="digest__up">▲</span></div>
+      <div class="digest__item"><span class="digest__label">Рейтинг Profi.ru</span><span class="digest__num">5.0</span><span class="digest__up">▲</span></div>
+    </section>
+
+    <section class="rubrics container" aria-label="Услуги">
+      <p class="rubrics__head">Рубрики номера</p>
+      <div class="rubrics__grid">
+        <div class="rubric">
+          <h2>Сайты под ключ</h2>
+          <p>Лендинги, корпоративные сайты, интернет-магазины — от брифа до запуска.</p>
+        </div>
+        <div class="rubric">
+          <h2>CMS и доработки</h2>
+          <p>WordPress, Tilda, 1С-Битрикс: правки, ускорение, поддержка.</p>
+        </div>
+        <div class="rubric">
+          <h2>Боты и интеграции</h2>
+          <p>Telegram-боты, оплата, CRM, API — автоматизация заявок.</p>
+        </div>
+        <div class="rubric">
+          <h2>SEO и Директ</h2>
+          <p>Продвижение в поиске и реклама, которая окупается.</p>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="foot">
+    <div class="container foot__in">
+      <p>© 2026 Александр Мамонтов</p>
+      <nav class="foot__links" aria-label="Документы">
+        <a href="prices.html">Цены</a>
+        <a href="oferta.html">Оферта</a>
+        <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
+      </nav>
+    </div>
+  </footer>
 
   <div class="floating-actions" aria-label="Быстрые контакты">
     <a class="fab fab--telegram" href="https://t.me/mamont861" target="_blank" rel="noopener" aria-label="Написать в Telegram">
@@ -153,149 +385,16 @@
   </div>
 
   <script>
-  /* ===== Matrix TV: rain -> portrait reveal -> menu/caption ===== */
   (function(){
-    var section = document.querySelector('.tv-hero');
-    if(!section) return;
-    var canvas = section.querySelector('[data-tvcanvas]');
-    var menu   = section.querySelector('[data-tvmenu]');
-    var cap    = section.querySelector('[data-tvcap]');
-    var skip   = section.querySelector('[data-tvskip]');
-    var ctx = canvas.getContext('2d', {alpha:false});
-    var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-    var glyphs = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリギジヂビピウゥクスツヌフムユュルレロヲゴゾドボポ0123456789<>=*+:.#$%&Z@ｦｱｲｳｴｵ'.split('');
-    var CW = 0, CH = 0, dpr = 1, fs = 16, cols = 0;
-    var drops = [];
-    var img = new Image(), imgReady = false, portrait = null;
-    img.onload = function(){ imgReady = true; buildPortrait(); };
-    img.src = 'assets/avatar.png';
-
-    function size(){
-      var r = canvas.getBoundingClientRect();
-      CW = Math.max(1, r.width); CH = Math.max(1, r.height);
-      dpr = Math.min(2, window.devicePixelRatio || 1);
-      canvas.width = Math.round(CW*dpr); canvas.height = Math.round(CH*dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      fs = CW < 560 ? 12 : (CW < 800 ? 14 : 16);
-      cols = Math.ceil(CW/fs);
-      drops = new Array(cols);
-      for(var i=0;i<cols;i++) drops[i] = Math.random()*(CH/fs);
-      ctx.textBaseline = 'alphabetic';
-      ctx.fillStyle = '#02030a'; ctx.fillRect(0,0,CW,CH);
-      if(imgReady) buildPortrait();
+    /* дата выпуска */
+    var d = document.querySelector('[data-date]');
+    if(d){
+      var s = new Date().toLocaleDateString('ru-RU', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+      d.textContent = s.charAt(0).toUpperCase() + s.slice(1);
     }
-
-    // pre-render the photo as a green duotone with darkened background + vignette
-    function buildPortrait(){
-      if(!CW || !CH) return;
-      var W = Math.round(CW), H = Math.round(CH);
-      var po = document.createElement('canvas'); po.width = W; po.height = H;
-      var p = po.getContext('2d');
-      var ir = img.width/img.height, gr = W/H, sx=0, sy=0, sw=img.width, sh=img.height;
-      if(ir > gr){ sw = img.height*gr; sx = (img.width - sw)/2; }
-      else { sh = img.width/gr; sy = (img.height - sh)/2; }
-      p.drawImage(img, sx, sy, sw, sh, 0, 0, W, H);
-      var im = p.getImageData(0,0,W,H), d = im.data;
-      var cx = W/2, cy = H*0.5, maxr = Math.hypot(cx,cy);
-      for(var i=0,px=0;i<d.length;i+=4,px++){
-        var x = px%W, y = (px/W)|0;
-        var L = (0.299*d[i]+0.587*d[i+1]+0.114*d[i+2])/255;
-        var bgd = L>0.78 ? (1-(L-0.78)/0.22*0.92) : 1;   // fade out bright background
-        var vr = Math.hypot(x-cx,y-cy)/maxr;
-        var vig = 1 - Math.pow(Math.max(0,vr-0.32)/0.68,1.5)*0.95;
-        var f = bgd*vig;
-        d[i]   = Math.min(255, L*70*f);
-        d[i+1] = Math.min(255, (55 + L*205)*f);
-        d[i+2] = Math.min(255, L*115*f);
-      }
-      p.putImageData(im,0,0);
-      portrait = po;
-    }
-
-    var start = 0, last = 0;
-    var T_REV0 = 3600, T_REV1 = 5200, T_MENU = 4200, T_CAP = 5000;
-    function revealAt(t){ return Math.max(0, Math.min(1, (t - T_REV0)/(T_REV1 - T_REV0))); }
-    function easeOut(x){ return 1 - Math.pow(1-x, 3); }
-
-    function frame(now){
-      if(!start){ start = now; last = now; }
-      var t = now - start;
-      if(now - last < 32){ raf = requestAnimationFrame(frame); return; } // ~30fps
-      last = now;
-
-      ctx.fillStyle = 'rgba(2,3,10,0.16)';
-      ctx.fillRect(0,0,CW,CH);
-      ctx.font = fs+'px ui-monospace, Menlo, Consolas, monospace';
-
-      var reveal = easeOut(revealAt(t));
-      var headA = 1 - 0.8*reveal;
-
-      // matrix rain (fades as the photo comes in)
-      if(headA > 0.02){
-        for(var i=0;i<cols;i++){
-          var y = drops[i]*fs;
-          ctx.fillStyle = 'rgba(200,255,220,'+(0.85*headA)+')';
-          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], i*fs, y);
-          ctx.fillStyle = 'rgba(40,220,120,'+(0.45*headA)+')';
-          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], i*fs, y-fs);
-          if(y > CH && Math.random() > 0.975) drops[i] = 0; else drops[i]++;
-        }
-      }
-
-      // the photo materialises out of the code
-      if(reveal > 0 && portrait){
-        ctx.globalAlpha = reveal;
-        ctx.drawImage(portrait, 0, 0, CW, CH);
-        ctx.globalAlpha = 1;
-      }
-
-      // code keeps dripping over the photo
-      if(reveal > 0.15){
-        for(var k=0;k<cols;k++){
-          if(Math.random() > 0.35) continue;
-          var yy = drops[k]*fs;
-          ctx.fillStyle = 'rgba(150,255,190,'+(0.10 + Math.random()*0.18)+')';
-          ctx.fillText(glyphs[(Math.random()*glyphs.length)|0], k*fs, yy);
-          if(yy > CH && Math.random() > 0.97) drops[k] = 0; else drops[k]++;
-        }
-      }
-
-      if(t > T_MENU) menu.classList.add('is-on');
-      if(t > T_CAP)  cap.classList.add('is-on');
-
-      raf = requestAnimationFrame(frame);
-    }
-
-    function finishNow(){
-      start = performance.now() - (T_REV1 + 300);
-      menu.classList.add('is-on'); cap.classList.add('is-on');
-    }
-
-    var raf = 0, running = false;
-    function play(){ if(running) return; running = true; last = 0; raf = requestAnimationFrame(frame); }
-    function stop(){ running = false; if(raf) cancelAnimationFrame(raf); raf = 0; }
-
-    size();
-    if(reduce){
-      var draw = function(){ ctx.fillStyle='#02030a'; ctx.fillRect(0,0,CW,CH); if(portrait) ctx.drawImage(portrait,0,0,CW,CH); menu.classList.add('is-on'); cap.classList.add('is-on'); };
-      if(imgReady) draw(); else img.addEventListener('load', function(){ buildPortrait(); draw(); });
-    } else {
-      play();
-    }
-
-    if(skip) skip.addEventListener('click', function(){ if(!reduce) finishNow(); });
-
-    var rt;
-    window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ var s = start; size(); start = s; if(reduce && portrait){ ctx.fillStyle='#02030a'; ctx.fillRect(0,0,CW,CH); ctx.drawImage(portrait,0,0,CW,CH); } }, 180); });
-
-    // pause when off-screen / tab hidden (saves battery; real visible tab runs normally)
-    if('IntersectionObserver' in window && !reduce){
-      new IntersectionObserver(function(e){
-        if(e[0].isIntersecting && !document.hidden) play(); else stop();
-      }, {threshold:0.03}).observe(section);
-    }
-    document.addEventListener('visibilitychange', function(){ if(reduce) return; if(document.hidden) stop(); else play(); });
+    /* фото: тап на тач-устройствах проявляет цвет */
+    var ph = document.querySelector('[data-photo]');
+    if(ph) ph.addEventListener('click', function(){ ph.classList.toggle('is-color'); });
   })();
   </script>
 </body>

@@ -3,43 +3,41 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#0e0a1f" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Стек — Александр Мамонтов</title>
   <meta name="description" content="Технологический стек: JavaScript, TypeScript, Python, PHP, C++, React, Flutter, Docker, Linux и другое." />
   <meta property="og:title" content="Стек — Александр Мамонтов" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=bw4" />
 
   <style>
     .stackwrap{max-width:1060px;margin:0 auto;padding:30px 20px 46px;}
     .stackhead{text-align:center;margin:6px 0 26px;}
-    .stackhead h1{margin:0;font-size:clamp(34px,6vw,56px);line-height:1;color:#fff;letter-spacing:.5px;}
-    .stackhead p{margin:12px 0 0;color:#c8bff0;font-size:16px;}
+    .stackhead h1{margin:0;font-size:clamp(34px,6vw,56px);line-height:1;color:#151515;letter-spacing:.5px;}
+    .stackhead p{margin:12px 0 0;color:rgba(0,0,0,.6);font-size:16px;}
 
     .board{position:relative;border-radius:30px;padding:38px 26px 34px;overflow:hidden;
-      background:linear-gradient(165deg,rgba(48,30,92,.55),rgba(12,9,28,.72));
-      border:1px solid rgba(255,255,255,.10);
-      box-shadow:0 44px 100px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.09);}
-    .board::before{content:"";position:absolute;inset:0;pointer-events:none;
-      background:radial-gradient(50% 60% at 22% 12%, rgba(120,90,255,.28), transparent 60%),
-                 radial-gradient(45% 55% at 82% 22%, rgba(74,255,180,.16), transparent 60%),
-                 radial-gradient(60% 70% at 60% 110%, rgba(255,90,180,.16), transparent 60%);}
+      background:#fff;
+      border:1px solid rgba(0,0,0,.16);
+      box-shadow:0 24px 60px rgba(0,0,0,.10);}
 
     .techgrid{position:relative;z-index:1;display:grid;
       grid-template-columns:repeat(auto-fit,minmax(94px,1fr));gap:26px 14px;justify-items:center;}
-    .tech{display:flex;flex-direction:column;align-items:center;gap:11px;
+    .tech{display:flex;flex-direction:column;align-items:center;gap:11px;cursor:pointer;
       animation:floaty var(--d,6s) ease-in-out infinite;animation-delay:var(--delay,0s);will-change:transform;}
     .tech__icon{width:76px;height:76px;border-radius:21px;display:grid;place-items:center;position:relative;
-      box-shadow:0 12px 24px rgba(0,0,0,.4), inset 0 2px 5px rgba(255,255,255,.35), inset 0 -7px 12px rgba(0,0,0,.22);
-      transition:transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s;}
+      box-shadow:0 12px 24px rgba(0,0,0,.18), inset 0 2px 5px rgba(255,255,255,.35), inset 0 -7px 12px rgba(0,0,0,.18);
+      transition:transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s, filter .5s ease;
+      filter:grayscale(1);}
     .tech__icon::after{content:"";position:absolute;inset:0;border-radius:inherit;
       background:linear-gradient(180deg,rgba(255,255,255,.35),transparent 45%);pointer-events:none;}
     .tech:hover .tech__icon{transform:translateY(-6px) scale(1.1) rotate(-3deg);
-      box-shadow:0 20px 34px rgba(0,0,0,.5), 0 0 26px rgba(140,110,255,.5), inset 0 2px 5px rgba(255,255,255,.4);}
+      box-shadow:0 20px 34px rgba(0,0,0,.22), 0 0 26px rgba(50,18,122,.28), inset 0 2px 5px rgba(255,255,255,.4);}
+    .tech.is-color .tech__icon{filter:none;}
     .tech__icon svg{width:46px;height:46px;display:block;}
     .tech__icon .tt{font-family:Arial,Helvetica,sans-serif;font-weight:800;line-height:1;}
-    .tech__name{font-size:12.5px;color:#d7cff2;font-weight:600;letter-spacing:.3px;}
+    .tech__name{font-size:12.5px;color:#3a3a44;font-weight:600;letter-spacing:.3px;}
 
     @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-13px) rotate(1.5deg)}}
     @media (prefers-reduced-motion:reduce){ .tech{animation:none;} }
@@ -72,7 +70,7 @@
         <a href="prices.html">Цены</a>
         <a href="certificates.html">Диплом</a>
         <a href="https://profi.ru/profile/MamontovAG4" target="_blank" rel="noopener">Отзывы</a>
-        <a href="resume/Aleksandr-FullStack-Resume.pdf" target="_blank" rel="noopener">Резюме</a>
+        <a href="resume/Aleksandr-FullStack-Resume.pdf" download="Aleksandr-Mamontov-Resume.pdf">Резюме</a>
         <a class="nav__cta" href="contact.html">Связаться</a>
       </div>
     </nav>
@@ -378,5 +376,13 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+  /* наведение (или тап) красит иконку насовсем — до следующей загрузки страницы */
+  document.querySelectorAll('.tech').forEach(function(t){
+    function paint(){ t.classList.add('is-color'); }
+    t.addEventListener('mouseenter', paint);
+    t.addEventListener('click', paint);
+  });
+  </script>
 </body>
 </html>
